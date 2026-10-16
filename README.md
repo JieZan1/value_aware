@@ -23,12 +23,15 @@ In a second terminal, from the project root, with the frontend running:
 
 ```sh
 uv sync
-uv run python -m tunnel.build_data                  # once: visual.json, data/truth.json, data/customers.csv
 uv run python -m tunnel.run --product quick --verify   # about 5 min
 ```
 
 A Chrome window opens for each shopper so you can watch it browse, pick a size and add to bag
 (add `--headless` to hide it). When the run ends it prints the path to `runs/<ts>/report.html`.
+
+
+uv run python -m tunnel.build_data                  # once: visual.json, data/truth.json, data/customers.csv
+if you have the OMS csv file and want to build the data again. 
 
 ### Choosing what to run
 
