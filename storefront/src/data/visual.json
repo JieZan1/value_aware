@@ -1,9 +1,9 @@
 {
   "rosewood": {
-    "texture": "soft matte napped suede",
-    "shape": "softly tapered almond toe",
+    "texture": "soft velvety suede",
+    "shape": "shot from behind, so the toe shape isn't visible",
     "colour_as_seen": "bright rosy pink",
-    "style": "heeled ankle boot",
+    "style": "heeled ankle boot with a block heel",
     "popularity": null,
     "colour_natural_light": "deep red-brown with a slight purple cast, darker than on most screens"
   },
@@ -88,12 +88,12 @@
     "colour_natural_light": "black"
   },
   "clementinne": {
-    "texture": "smooth leather with a soft sheen",
-    "shape": "sharp pointed toe, slim profile",
-    "colour_as_seen": "cognac",
-    "style": "loafer",
+    "texture": "glossy burnished leather",
+    "shape": "rounded almond toe, low-cut slip-on throat",
+    "colour_as_seen": "warm cognac brown",
+    "style": "horsebit loafer",
     "popularity": "Popular",
-    "colour_natural_light": "cognac"
+    "colour_natural_light": "warm cognac brown"
   },
   "alanie": {
     "texture": "smooth leather with a soft sheen",
@@ -104,12 +104,12 @@
     "colour_natural_light": "deeper tan nude"
   },
   "oneameth": {
-    "texture": "soft matte napped suede",
-    "shape": "sharp pointed toe, slim profile",
-    "colour_as_seen": "nude",
-    "style": "pump",
+    "texture": "fine textured finish with a soft sheen",
+    "shape": "sharply pointed, narrow toe",
+    "colour_as_seen": "pale cream nude",
+    "style": "stiletto pump",
     "popularity": null,
-    "colour_natural_light": "nude"
+    "colour_natural_light": "pale cream nude"
   },
   "lededanten": {
     "texture": "fine brushed faux suede with a flat sheen",
@@ -152,11 +152,43 @@
     "colour_natural_light": "bright brassy yellow-gold with a high shine"
   },
   "adrauder": {
-    "texture": "glossy smooth faux leather",
-    "shape": "open toe",
-    "colour_as_seen": "black",
-    "style": "slide",
+    "texture": "smooth leather-look with a contrast cognac strap",
+    "shape": "open toe-post (thong) front",
+    "colour_as_seen": "black with a cognac strap",
+    "style": "toe-post slide sandal",
     "popularity": "Popular",
-    "colour_natural_light": "black"
+    "colour_natural_light": "black with a cognac strap"
+  },
+  "marigold": {
+    "texture": "high-shine metallic leather-look",
+    "shape": "softly rounded toe with a horsebit trim",
+    "colour_as_seen": "pale champagne gold under cool studio light",
+    "style": "metallic loafer",
+    "popularity": null,
+    "colour_natural_light": "brassy yellow-gold in sunlight \u00b7 warm coppery gold under indoor light"
+  },
+  "guavaberry": {
+    "texture": "high-gloss crinkled patent",
+    "shape": "sharp pointed toe, slingback strap",
+    "colour_as_seen": "jet black on a white studio backdrop",
+    "style": "slingback with a sculpted ball heel",
+    "popularity": null,
+    "colour_natural_light": "deep oxblood red in daylight \u00b7 near-black indoors"
+  },
+  "ebariel": {
+    "texture": "soft napped suede",
+    "shape": "almond toe, slim fitted shaft (worn on a slim leg)",
+    "colour_as_seen": "mushroom taupe-brown",
+    "style": "knee-high boot with a block heel",
+    "popularity": null,
+    "colour_natural_light": "mushroom taupe-brown"
+  },
+  "stormport": {
+    "texture": "matte moulded rubber",
+    "shape": "rounded toe, tall straight shaft",
+    "colour_as_seen": "olive green",
+    "style": "rain boot with a chunky lug sole",
+    "popularity": null,
+    "colour_natural_light": "olive green"
   }
 }

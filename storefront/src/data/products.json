@@ -41,7 +41,7 @@
     },
     "aldoStats": null,
     "images": [
-      "https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16"
+      "https://images.unsplash.com/photo-1591355904129-e3170b9abe5b"
     ],
     "labels": {
       "material": "Suede",
@@ -1107,6 +1107,251 @@
       "gender": "Women's",
       "height": "Low-top",
       "season": "Summer"
+    }
+  },
+  {
+    "id": "marigold",
+    "name": "Marigold",
+    "category": "Shoes",
+    "type": "Metallic loafer",
+    "price": 84.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Gold",
+        "hex": "#c9a85c"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0
+    ],
+    "description": "A metallic loafer with a polished horsebit trim and a slim, flexible sole. Dresses up jeans and works with tailoring.",
+    "details": {
+      "material": "Metallic faux leather",
+      "toe": "Almond toe",
+      "heelCm": 1,
+      "width": "Regular",
+      "closure": "Slip-on"
+    },
+    "omsStyle": "Goldao2eyetn_mm",
+    "aldoStats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1149,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.74,
+      "colourOrExpectationReturns": 243,
+      "uncomfortableReturns": 65
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1678784973559-43fb10550343",
+      "https://images.unsplash.com/photo-1678784973719-cf4e71791892"
+    ],
+    "labels": {
+      "material": "Metallic",
+      "gender": "Unisex",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "guavaberry",
+    "name": "Guavaberry",
+    "category": "Shoes",
+    "type": "Patent slingback",
+    "price": 145.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black Cherry",
+        "hex": "#2b0d14"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0
+    ],
+    "description": "A pointed slingback in high-shine crinkled patent with a sculpted ball heel. Polished from desk to dinner.",
+    "details": {
+      "material": "Patent",
+      "toe": "Pointed toe",
+      "heelCm": 4,
+      "width": "Regular",
+      "closure": "Slingback strap"
+    },
+    "omsStyle": "Guavaberry",
+    "aldoStats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 413,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.51,
+      "colourOrExpectationReturns": 41,
+      "uncomfortableReturns": 32
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1789110519431-0a9bf0af5074"
+    ],
+    "labels": {
+      "material": "Patent",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "ebariel",
+    "name": "Ebariel",
+    "category": "Boots",
+    "type": "Knee-high boot",
+    "price": 129.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Mushroom",
+        "hex": "#7a6355"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0
+    ],
+    "description": "A sleek knee-high boot in soft suede with a slim, fitted shaft and a stacked block heel.",
+    "details": {
+      "material": "Suede",
+      "toe": "Almond toe",
+      "heelCm": 7,
+      "width": "Regular",
+      "closure": "Inside zip"
+    },
+    "omsStyle": "Ebariel",
+    "aldoStats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1182,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.97,
+      "colourOrExpectationReturns": 9,
+      "uncomfortableReturns": 26
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1575425939273-46ecee6d6931"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "stormport",
+    "name": "Stormport",
+    "category": "Boots",
+    "type": "Rain boot",
+    "price": 59.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Olive",
+        "hex": "#5a6b4e"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0
+    ],
+    "description": "A fully waterproof rubber rain boot with a pull-on shaft and a deep lug sole for wet streets.",
+    "details": {
+      "material": "Rubber",
+      "toe": "Round toe",
+      "heelCm": 3,
+      "width": "Regular",
+      "closure": "Pull-on"
+    },
+    "omsStyle": "Seaprtstorm_wm",
+    "aldoStats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1345,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.42,
+      "colourOrExpectationReturns": 101,
+      "uncomfortableReturns": 254
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1749220781913-d820a977e985"
+    ],
+    "labels": {
+      "material": "Rubber",
+      "gender": "Unisex",
+      "height": "High-top",
+      "season": "All season"
     }
   }
 ]

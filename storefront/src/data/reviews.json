@@ -1,58 +1,22 @@
 {
   "rosewood": [
     {
-      "persona": "Size 6, wide feet, weekend errands",
+      "persona": "Size 6, wide feet and calves, weekend errands",
       "kind": "shopper",
       "size": 6.0,
       "rating": 3,
-      "text": "The Rosewood pink suede looks just like the ad, so I ordered my usual 6 and added it to my bag. The page lists width as \"Regular\" and gives no fit guidance, so I'm a bit nervous about my wide feet.",
+      "text": "The pink suede is exactly what caught my eye in the ad, so I added my usual size 6. The page says the width is \"Regular\" and gives nothing on calf room or heel grip, so I'm unsure how they'll fit my wide feet and calves.",
       "likelyReturn": true,
       "reason": "Too small"
     },
     {
-      "persona": "Size 9.5, narrow feet, between sizes, everyday",
+      "persona": "Size 9.5, narrow feet, wide calves, everyday",
       "kind": "shopper",
       "size": 9.5,
       "rating": 3,
-      "text": "The pink suede is exactly what I saw in the ad, so I bought it in my usual 9.5. The page doesn't say whether it runs true to size, and I have narrow feet and a slipping heel, so that worries me.",
+      "text": "Loved the rosy pink suede from the ad, so I got it in my usual 9.5. The page doesn't say anything about sizing, calf fit or heel grip, so it's a bit of a gamble.",
       "likelyReturn": false,
       "reason": null
-    },
-    {
-      "persona": "Size 9, regular width, nurse on 12-hour shifts · bought Belide instead",
-      "kind": "shopper",
-      "size": 9.0,
-      "rating": 3,
-      "text": "Smooth leather, regular width, a modest 4 cm heel and an almond toe, so it should work for a 12-hour shift. The page says nothing about cushioning, insoles or sole grip, which I'd want to know as a nurse.",
-      "likelyReturn": true,
-      "reason": "Too big"
-    },
-    {
-      "persona": "Size 7, narrow feet, particular about colour",
-      "kind": "shopper",
-      "size": 7.0,
-      "rating": 4,
-      "text": "The Rosewood pink suede is exactly what the ad showed, so I grabbed my usual 7. I wish the page told me more about fit for narrow feet.",
-      "likelyReturn": true,
-      "reason": "Colour"
-    },
-    {
-      "persona": "Size 7.5, regular width, wedding guest",
-      "kind": "shopper",
-      "size": 7.5,
-      "rating": 4,
-      "text": "The pink suede looks lovely and the low 4 cm heel seems manageable for a long wedding. I wish the page said more about comfort and fit, but I went with my usual 7.5.",
-      "likelyReturn": false,
-      "reason": null
-    },
-    {
-      "persona": "Size 8.5, regular width, between sizes, evenings out · bought Aahliyah instead",
-      "kind": "shopper",
-      "size": 8.5,
-      "rating": 3,
-      "text": "Cream faux suede with a low 4 cm heel looked right for a night out and was the closest to my colour taste. The page said nothing about fit or sizing, and it's not knit, so I'm going with my usual 8.5 and hoping the heel doesn't slip.",
-      "likelyReturn": true,
-      "reason": "Too small"
     }
   ],
   "elliette": [
@@ -73,6 +37,126 @@
       "text": "Heel looks walkable. I'd keep it if the fit is true to size.",
       "likelyReturn": false,
       "reason": null
+    }
+  ],
+  "ebariel": [
+    {
+      "persona": "Size 6, wide feet and calves, errands",
+      "kind": "shopper",
+      "size": 6.0,
+      "rating": 3,
+      "text": "The mushroom suede looks just like the ad and I love the block heel, so I ordered my usual 6. I'm a bit nervous about the slim shaft for my wide calves, and the page doesn't say how wide the shaft is.",
+      "likelyReturn": true,
+      "reason": "Too small (calf)"
+    },
+    {
+      "persona": "Size 7.5, regular fit, wedding guest",
+      "kind": "shopper",
+      "size": 7.5,
+      "rating": 3,
+      "text": "The mushroom suede knee-high looks right for a wedding, so I got my usual 7.5. The page doesn't say much about comfort, calf fit or whether it's real leather, so I'm guessing on those.",
+      "likelyReturn": false,
+      "reason": null
+    }
+  ],
+  "oneameth": [
+    {
+      "persona": "Mock customer · US 8, wide feet, 10-hour days",
+      "kind": "shopper",
+      "size": 8.0,
+      "rating": 3,
+      "text": "The nude pump looks great and is the one from the ad, so I ordered my usual 8. The page says the width is \"Regular\" and the toe is pointed with an 8 cm heel, so I'm unsure it will be comfortable for ten hours on my wide feet.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    }
+  ],
+  "marigold": [
+    {
+      "persona": "Size 7, wide feet, office, colour-particular",
+      "kind": "shopper",
+      "size": 7.0,
+      "rating": 4,
+      "text": "The gold Marigold is the champagne-gold loafer from the ad, so I got it in my usual 7. I wish the page said more about fit, since the width is listed as Regular and my feet are wide.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 10, wide feet and calves, wedding guest, wants leather · bought Clementinne instead",
+      "kind": "shopper",
+      "size": 10.0,
+      "rating": 3,
+      "text": "I loved the champagne gold Marigold in the ad, but the page says metallic faux leather, and I wanted real leather for the wedding. I went with the Clementinne leather loafer instead. It's not as glam, and I'm a bit unsure about the pointed toe with my wide feet.",
+      "likelyReturn": true,
+      "reason": "Too big"
+    },
+    {
+      "persona": "Size 6.5, wide feet, wedding guest, suede, cream/taupe · bought Oneameth instead",
+      "kind": "shopper",
+      "size": 6.5,
+      "rating": 3,
+      "text": "Real suede in a pale cream nude is exactly what I wanted for the wedding. I'm nervous about an 8 cm stiletto with a narrow pointed toe on wide feet for six hours, though, and the page never says how it fits.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 9.5, wide feet, wedding guest, casual-shoe wearer",
+      "kind": "shopper",
+      "size": 9.5,
+      "rating": 3,
+      "text": "The gold Marigold looks like exactly what I saw in the ad and should dress up a wedding outfit. I'd have liked some info on fit and comfort for standing three hours, and it only comes in Regular width.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 6.5, wide feet, office, wants leather · bought Clementinne instead",
+      "kind": "shopper",
+      "size": 6.5,
+      "rating": 3,
+      "text": "I loved the Marigold in the ad, but the page says metallic faux leather and I wanted real leather, so I went with the Clementinne in leather instead. It has a pointed toe and the page lists the width as regular, so I'm a bit worried about my wide feet.",
+      "likelyReturn": true,
+      "reason": "Too big"
+    },
+    {
+      "persona": "Size 6.5, wide feet, nurse, comfort first · bought Lededanten instead",
+      "kind": "shopper",
+      "size": 6.5,
+      "rating": 3,
+      "text": "Nothing here is a real nursing shoe, but this flat faux-suede loafer is matte and has a low 2 cm heel and a buckle, so it's the most workable option. I wish the page said something about cushioning and width.",
+      "likelyReturn": true,
+      "reason": "Too big"
+    }
+  ],
+  "clementinne": [
+    {
+      "persona": "Mock customer · US 8, wide feet, 10-hour days",
+      "kind": "shopper",
+      "size": 8.0,
+      "rating": 3,
+      "text": "The cognac loafer looks great in the photo and I got my usual 8. It says Width: Regular, though, and I have wide feet. I'd have liked to know if there's a wide option or how it fits before I ordered.",
+      "likelyReturn": true,
+      "reason": "Too big"
+    }
+  ],
+  "guavaberry": [
+    {
+      "persona": "Mock customer · US 8, wide feet, 10-hour days",
+      "kind": "shopper",
+      "size": 8.0,
+      "rating": 3,
+      "text": "Loved the glossy pointed look from the ad, so I grabbed my usual 8. But the page says width is Regular and the toe is pointed, and I'm on my feet 10 hours with wide feet, so I'm not sure about comfort.",
+      "likelyReturn": true,
+      "reason": "Colour"
+    }
+  ],
+  "stormport": [
+    {
+      "persona": "Mock customer · US 8, wide feet, 10-hour days",
+      "kind": "shopper",
+      "size": 8.0,
+      "rating": 3,
+      "text": "Olive rain boot like the ad, so I got it in my usual 8. The page lists width as \"Regular\" and says nothing about cushioning or all-day comfort, which matters since I'm on my feet 10 hours.",
+      "likelyReturn": true,
+      "reason": "Uncomfortable"
     }
   ]
 }

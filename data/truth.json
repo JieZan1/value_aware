@@ -1,25 +1,37 @@
 {
   "rosewood": {
     "size_offset": 0.0,
-    "fit": "true to size",
     "width": "narrow toe box",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "bright rosy pink",
     "true_colour": "deep red-brown with a slight purple cast, darker than on most screens",
     "colour_misleads": true,
-    "misleading_colourway": "Rosewood",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.0,
-    "real_stats": null
+    "real_stats": null,
+    "fit": "true to size",
+    "misleading_colourway": "Rosewood",
+    "issues": [
+      "Narrow toe box: wide feet need half a size up",
+      "Photo reads bright pink; the boot is deep red-brown"
+    ]
   },
   "elliette": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "narrow toe box",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.0,
@@ -31,16 +43,25 @@
       "tooSmallShareOfSizeReturns": 0.7,
       "colourOrExpectationReturns": null,
       "uncomfortableReturns": null
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small",
+      "Narrow toe box"
+    ]
   },
   "braxtonn": {
     "size_offset": 0.0,
-    "fit": "true to size",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "tan",
     "true_colour": "tan",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.0,
@@ -52,16 +73,22 @@
       "tooSmallShareOfSizeReturns": 0.43,
       "colourOrExpectationReturns": null,
       "uncomfortableReturns": null
-    }
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": []
   },
   "kamrynn": {
     "size_offset": 0.0,
-    "fit": "true to size",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.0,
@@ -73,16 +100,22 @@
       "tooSmallShareOfSizeReturns": 0.38,
       "colourOrExpectationReturns": null,
       "uncomfortableReturns": null
-    }
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": []
   },
   "aahliyah": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "cream",
     "true_colour": "cream",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.069,
@@ -94,16 +127,24 @@
       "tooSmallShareOfSizeReturns": 0.82,
       "colourOrExpectationReturns": 19,
       "uncomfortableReturns": 135
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small"
+    ]
   },
   "goer": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Textile",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.064,
@@ -115,16 +156,24 @@
       "tooSmallShareOfSizeReturns": 0.74,
       "colourOrExpectationReturns": 32,
       "uncomfortableReturns": 96
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small"
+    ]
   },
   "verity": {
     "size_offset": 0.0,
-    "fit": "true to size",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.097,
@@ -136,16 +185,22 @@
       "tooSmallShareOfSizeReturns": 0.58,
       "colourOrExpectationReturns": 43,
       "uncomfortableReturns": 146
-    }
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": []
   },
   "wicoenia": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "narrow toe box",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.072,
@@ -157,16 +212,25 @@
       "tooSmallShareOfSizeReturns": 0.79,
       "colourOrExpectationReturns": 26,
       "uncomfortableReturns": 78
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small",
+      "Narrow toe box"
+    ]
   },
   "nevada": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "light warm beige",
     "true_colour": "cool grey-brown taupe",
     "colour_misleads": true,
-    "misleading_colourway": "Taupe",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.071,
@@ -178,16 +242,25 @@
       "tooSmallShareOfSizeReturns": 0.77,
       "colourOrExpectationReturns": 30,
       "uncomfortableReturns": 74
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": "Taupe",
+    "issues": [
+      "Runs half a size small",
+      "Photo reads light warm beige; really cool grey-brown taupe"
+    ]
   },
   "belide": {
     "size_offset": -0.5,
-    "fit": "runs half a size large",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "cognac",
     "true_colour": "cognac",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.058,
@@ -199,16 +272,24 @@
       "tooSmallShareOfSizeReturns": 0.23,
       "colourOrExpectationReturns": 31,
       "uncomfortableReturns": 61
-    }
+    },
+    "fit": "runs half a size large",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size large"
+    ]
   },
   "veadith": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "black",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Textile",
     "comfort": "unstructured mule, heel slips out; thin footbed with little cushioning",
     "comfort_issue": true,
     "uncomfortable_share": 0.082,
@@ -220,16 +301,25 @@
       "tooSmallShareOfSizeReturns": 0.67,
       "colourOrExpectationReturns": 40,
       "uncomfortableReturns": 253
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small",
+      "Unstructured mule, heel slips out; thin footbed with little cushioning"
+    ]
   },
   "clementinne": {
     "size_offset": -0.5,
-    "fit": "runs half a size large",
     "width": "regular",
-    "photo_colour": "cognac",
+    "calf": "regular",
+    "roomy_heel": false,
+    "photo_colour": "warm cognac brown",
     "true_colour": "cognac",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.055,
@@ -241,16 +331,25 @@
       "tooSmallShareOfSizeReturns": 0.18,
       "colourOrExpectationReturns": 39,
       "uncomfortableReturns": 111
-    }
+    },
+    "fit": "runs half a size large",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size large: most feet need half a size down",
+      "Real data: 82% of its size returns say 'too big'"
+    ]
   },
   "alanie": {
     "size_offset": 0.0,
-    "fit": "true to size",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "pale peachy nude",
     "true_colour": "deeper tan nude",
     "colour_misleads": true,
-    "misleading_colourway": "Nude",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.087,
@@ -262,16 +361,24 @@
       "tooSmallShareOfSizeReturns": 0.61,
       "colourOrExpectationReturns": 16,
       "uncomfortableReturns": 94
-    }
+    },
+    "fit": "true to size",
+    "misleading_colourway": "Nude",
+    "issues": [
+      "Photo reads pale peachy nude; really deeper tan nude"
+    ]
   },
   "oneameth": {
     "size_offset": 0.0,
-    "fit": "true to size",
-    "width": "regular",
-    "photo_colour": "nude",
+    "width": "narrow toe box",
+    "calf": "regular",
+    "roomy_heel": false,
+    "photo_colour": "pale cream nude",
     "true_colour": "nude",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.073,
@@ -283,16 +390,24 @@
       "tooSmallShareOfSizeReturns": 0.42,
       "colourOrExpectationReturns": 21,
       "uncomfortableReturns": 76
-    }
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": [
+      "Forefoot too narrow: the pointed toe box pinches wide feet (length is true to size)"
+    ]
   },
   "lededanten": {
     "size_offset": -0.5,
-    "fit": "runs half a size large",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "tan",
     "true_colour": "tan",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux suede",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.053,
@@ -304,16 +419,24 @@
       "tooSmallShareOfSizeReturns": 0.3,
       "colourOrExpectationReturns": 32,
       "uncomfortableReturns": 52
-    }
+    },
+    "fit": "runs half a size large",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size large"
+    ]
   },
   "dorenna": {
     "size_offset": -0.5,
-    "fit": "runs half a size large",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "bright cherry red",
     "true_colour": "dark wine burgundy",
     "colour_misleads": true,
-    "misleading_colourway": "Burgundy",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Textile",
     "comfort": "heavy platform with a rigid sole, tiring on long walks",
     "comfort_issue": true,
     "uncomfortable_share": 0.086,
@@ -325,16 +448,26 @@
       "tooSmallShareOfSizeReturns": 0.32,
       "colourOrExpectationReturns": 20,
       "uncomfortableReturns": 179
-    }
+    },
+    "fit": "runs half a size large",
+    "misleading_colourway": "Burgundy",
+    "issues": [
+      "Runs half a size large",
+      "Photo reads bright cherry red; really dark wine burgundy",
+      "Heavy platform with a rigid sole, tiring on long walks"
+    ]
   },
   "elenaa": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "sky blue",
     "true_colour": "sky blue",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.049,
@@ -346,16 +479,24 @@
       "tooSmallShareOfSizeReturns": 0.66,
       "colourOrExpectationReturns": 19,
       "uncomfortableReturns": 72
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small"
+    ]
   },
   "aneka": {
     "size_offset": -0.5,
-    "fit": "runs half a size large",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "white",
     "true_colour": "white",
     "colour_misleads": false,
-    "misleading_colourway": null,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.048,
@@ -367,16 +508,24 @@
       "tooSmallShareOfSizeReturns": 0.24,
       "colourOrExpectationReturns": 27,
       "uncomfortableReturns": 57
-    }
+    },
+    "fit": "runs half a size large",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size large"
+    ]
   },
   "lagoon": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
     "photo_colour": "soft champagne gold",
     "true_colour": "bright brassy yellow-gold with a high shine",
     "colour_misleads": true,
-    "misleading_colourway": "Gold",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux leather",
     "comfort": "no known comfort issue",
     "comfort_issue": false,
     "uncomfortable_share": 0.06,
@@ -388,17 +537,26 @@
       "tooSmallShareOfSizeReturns": 0.83,
       "colourOrExpectationReturns": 15,
       "uncomfortableReturns": 64
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": "Gold",
+    "issues": [
+      "Runs half a size small",
+      "Photo reads soft champagne gold; really bright brassy yellow-gold with a high shine"
+    ]
   },
   "adrauder": {
     "size_offset": 0.5,
-    "fit": "runs half a size small",
     "width": "regular",
-    "photo_colour": "black",
+    "calf": "regular",
+    "roomy_heel": false,
+    "photo_colour": "black with a cognac strap",
     "true_colour": "black",
     "colour_misleads": false,
-    "misleading_colourway": null,
-    "comfort": "stiff faux-leather strap rubs the top of the foot; flat footbed with no arch support",
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Faux leather",
+    "comfort": "toe post and stiff strap rub between the toes and across the top of the foot; flat footbed",
     "comfort_issue": true,
     "uncomfortable_share": 0.183,
     "real_stats": {
@@ -409,6 +567,132 @@
       "tooSmallShareOfSizeReturns": 0.7,
       "colourOrExpectationReturns": 9,
       "uncomfortableReturns": 173
-    }
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": null,
+    "issues": [
+      "Runs half a size small",
+      "Toe post and stiff strap rub on long days"
+    ]
+  },
+  "marigold": {
+    "size_offset": 0.5,
+    "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
+    "photo_colour": "pale champagne gold under cool studio light",
+    "true_colour": "brassy yellow-gold in sunlight \u00b7 warm coppery gold under indoor light",
+    "colour_misleads": true,
+    "colour_shift": true,
+    "material_misleads": false,
+    "material_truth": "Metallic faux leather",
+    "comfort": "no known comfort issue",
+    "comfort_issue": false,
+    "uncomfortable_share": 0.057,
+    "real_stats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1149,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.74,
+      "colourOrExpectationReturns": 243,
+      "uncomfortableReturns": 65
+    },
+    "fit": "runs half a size small",
+    "misleading_colourway": "Gold",
+    "issues": [
+      "Runs half a size small",
+      "Metallic gold changes with the light: pale champagne in the photo, brassy or coppery in real life"
+    ]
+  },
+  "guavaberry": {
+    "size_offset": 0.0,
+    "width": "regular",
+    "calf": "regular",
+    "roomy_heel": false,
+    "photo_colour": "jet black on a white studio backdrop",
+    "true_colour": "deep oxblood red in daylight \u00b7 near-black indoors",
+    "colour_misleads": true,
+    "colour_shift": true,
+    "material_misleads": true,
+    "material_truth": "coated synthetic (PU) patent, not leather; creases stiffly across the toe",
+    "comfort": "no known comfort issue",
+    "comfort_issue": false,
+    "uncomfortable_share": 0.077,
+    "real_stats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 413,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.51,
+      "colourOrExpectationReturns": 41,
+      "uncomfortableReturns": 32
+    },
+    "fit": "true to size",
+    "misleading_colourway": "Black Cherry",
+    "issues": [
+      "Reads jet black online; deep oxblood red in daylight",
+      "Coated synthetic patent, not leather"
+    ]
+  },
+  "ebariel": {
+    "size_offset": 0.0,
+    "width": "regular",
+    "calf": "tight: 34 cm shaft, fits slim to regular calves only",
+    "roomy_heel": false,
+    "photo_colour": "mushroom taupe-brown",
+    "true_colour": "mushroom",
+    "colour_misleads": false,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Suede",
+    "comfort": "no known comfort issue",
+    "comfort_issue": false,
+    "uncomfortable_share": 0.022,
+    "real_stats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1182,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.97,
+      "colourOrExpectationReturns": 9,
+      "uncomfortableReturns": 26
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": [
+      "Calf too tight for wide calves (34 cm shaft); length is true to size",
+      "Real data: 97% of its size returns say 'too small', which is what a tight calf looks like"
+    ]
+  },
+  "stormport": {
+    "size_offset": 0.0,
+    "width": "regular",
+    "calf": "regular",
+    "roomy_heel": true,
+    "photo_colour": "olive green",
+    "true_colour": "olive",
+    "colour_misleads": false,
+    "colour_shift": false,
+    "material_misleads": false,
+    "material_truth": "Rubber",
+    "comfort": "stiff, heavy rubber shaft rubs the shin; flat footbed with no arch support, tiring on long days",
+    "comfort_issue": true,
+    "uncomfortable_share": 0.189,
+    "real_stats": {
+      "source": "ALDO OMS returns, Feb 2024 - Jan 2026 (no orders sample for this style)",
+      "unitsSoldSample": null,
+      "returns": 1345,
+      "returnRate": null,
+      "tooSmallShareOfSizeReturns": 0.42,
+      "colourOrExpectationReturns": 101,
+      "uncomfortableReturns": 254
+    },
+    "fit": "true to size",
+    "misleading_colourway": null,
+    "issues": [
+      "Roomy heel: narrow heels slip and need half a size down",
+      "Stiff, heavy rubber: uncomfortable on long days"
+    ]
   }
 }

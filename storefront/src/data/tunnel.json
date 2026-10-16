@@ -2,16 +2,21 @@
   "rosewood": {
     "before": {
       "rate": 0.5,
-      "range": 0.25
+      "range": 0.35
     },
-    "fitNote": "True to size, with a narrow toe box. If you have wide feet, go up half a size. If you have narrow feet, your usual size should fit.",
-    "colourNote": "Rosewood is a deep red-brown with a slight purple cast. It is darker than it looks on most screens, and not the bright rosy pink some photos suggest.",
-    "photoStatus": "Reshoot or recolour Rosewood so it matches the real deep red-brown with a purple cast. Shoot in natural daylight with no filter or warm grading. Shots needed: front three-quarter, side profile showing the 4 cm stacked heel, top-down view of the almond toe and toe box, close-up of the suede nap, and one next to the Black colourway for reference. Check the final images on a phone and on a desktop screen against the physical boot.",
+    "fitNote": "Fits true to size in length, but the toe box is narrow. If you have wide feet, take half a size up. Regular calf fit, and the heel is not roomy, so it sits close at the back.",
+    "colourNote": "Rosewood is a deep red-brown with a slight purple cast. It is darker than it looks on most screens, and the product photo reads as bright rosy pink. The colour does not change noticeably between daylight and indoor light.",
+    "materialNote": null,
+    "comfortNote": null,
+    "photoStatus": "Replace the Rosewood photo with one that shows the true deep red-brown. Shoot in natural daylight and check it against the physical boot on a calibrated screen. Add a second shot indoors to show the colour stays the same. Add a top-down or front view that shows the narrow almond toe, a side view that shows the 4 cm stacked heel, and a back view of the heel. Show a shot on a model or beside a ruler for shaft height. Retake the Black colourway only if it has the same problem.",
     "feedFacts": {
       "width": "narrow",
+      "toe_box": "Narrow almond toe",
+      "calf_fit": "Regular calves. Shaft circumference not yet measured; staff to add it.",
       "heel_cm": 4.0,
-      "colour_text": "Deep red-brown with a slight purple cast; darker than it appears on most screens",
-      "comfort": "No known comfort issues"
+      "colour_text": "Deep red-brown with a slight purple cast (darker than most screen images)",
+      "colour_by_light": "No noticeable shift between daylight and indoor light. Looks deep red-brown in person; screens often show it brighter and pinker.",
+      "material": "Suede"
     },
     "approved": false,
     "illustrative": false,
@@ -38,5 +43,153 @@
     },
     "approved": true,
     "illustrative": true
+  },
+  "ebariel": {
+    "before": {
+      "rate": 0.5,
+      "range": 0.35
+    },
+    "fitNote": "True to size in length, so order your usual size. The shaft is 34 cm around and fits slim to regular calves only. It is not suitable for wide calves. Measure your calf at its widest point before ordering.",
+    "colourNote": null,
+    "materialNote": null,
+    "comfortNote": null,
+    "photoStatus": "Add a photo of the boot zipped up on a regular calf, with a tape measure around the 34 cm shaft. Add a side shot showing shaft height against the leg. Shoot in natural light.",
+    "feedFacts": {
+      "width": "regular",
+      "toe_box": "Almond toe",
+      "calf_fit": "34 cm shaft circumference, slim to regular calves only; not suitable for wide calves",
+      "heel_cm": 7.0,
+      "material": "Suede"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.05
+    }
+  },
+  "oneameth": {
+    "before": {
+      "rate": 1.0,
+      "range": 0.05
+    },
+    "fitNote": "Length is true to size, so order your usual size. The toe box is narrow and pointed, and it can pinch across the forefoot if you have wide feet.",
+    "colourNote": null,
+    "materialNote": null,
+    "comfortNote": null,
+    "photoStatus": null,
+    "feedFacts": {
+      "width": "narrow",
+      "toe_box": "narrow, pointed",
+      "heel_cm": 8.0,
+      "colour_text": "Nude (pale cream nude in photos)",
+      "material": "Suede",
+      "comfort": "No known comfort issue; narrow pointed toe box can pinch wide feet"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.0
+    }
+  },
+  "marigold": {
+    "before": {
+      "rate": 1.0,
+      "range": 0.05
+    },
+    "fitNote": "Runs half a size small: order half a size up from your usual size (for example, 7 becomes 7.5). Regular width with an almond toe; if you have wider feet or are between sizes, go up half a size.",
+    "colourNote": "Gold looks pale champagne in our studio photo, but in person it is a brassy yellow-gold in sunlight and a warmer, coppery gold under indoor light. Black is unaffected.",
+    "materialNote": "The upper is metallic faux leather, not real leather.",
+    "comfortNote": null,
+    "photoStatus": "Reshoot Gold in natural light: (1) outdoors in direct sunlight, (2) indoors under warm household light, (3) the current cool studio shot labelled as such. Show side, top and horsebit close-up in each light. Keep the Black photos as they are. Make the toe caption match the 'almond toe' in the details.",
+    "feedFacts": {
+      "runs_small": "half",
+      "width": "regular",
+      "toe_box": "Almond toe, regular width",
+      "heel_cm": 1.0,
+      "colour_text": "Metallic gold that shifts with the light, from brassy yellow-gold in sunlight to warm coppery gold indoors. It is not the pale champagne seen in the studio photo.",
+      "colour_by_light": "Gold: pale champagne under cool studio light; brassy yellow-gold in sunlight; warm coppery gold under indoor light",
+      "material": "Metallic faux leather"
+    },
+    "approved": false,
+    "illustrative": false
+  },
+  "clementinne": {
+    "before": {
+      "rate": 1.0,
+      "range": 0.05
+    },
+    "fitNote": "Runs half a size large. Most people should order half a size down from their usual size (for example, 7.5 if you normally wear an 8). Regular width, pointed toe.",
+    "colourNote": null,
+    "materialNote": null,
+    "comfortNote": null,
+    "photoStatus": null,
+    "feedFacts": {
+      "runs_large": "half",
+      "width": "regular",
+      "toe_box": "pointed",
+      "heel_cm": 1.0,
+      "colour_text": "Cognac, a warm brown",
+      "material": "Leather"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.05
+    }
+  },
+  "guavaberry": {
+    "before": {
+      "rate": 1.0,
+      "range": 0.05
+    },
+    "fitNote": "True to size; order your usual size. Regular width with a pointed toe, so shoppers with wide feet may find it snug.",
+    "colourNote": "Black Cherry is a deep oxblood red in daylight and looks near-black indoors. It is not jet black, as the studio photo suggests.",
+    "materialNote": "The upper is coated synthetic (PU) patent, not leather, and it creases stiffly across the toe.",
+    "comfortNote": "No known comfort issue with this style. It has a 4 cm heel and a pointed toe, so it is a regular-width fit.",
+    "photoStatus": "Reshoot or add photos of Black Cherry: (1) in natural daylight near a window, showing the oxblood red; (2) indoors under normal artificial light, showing the near-black look; (3) a side-by-side or on-foot shot in each light. Add a close-up of the crinkled patent toe. Label each photo with the light it was taken in, and don't rely on the white studio shot alone.",
+    "feedFacts": {
+      "width": "regular",
+      "toe_box": "pointed",
+      "heel_cm": 4.0,
+      "colour_text": "Deep oxblood red in daylight, near-black indoors (not jet black)",
+      "colour_by_light": "Daylight: deep oxblood red. Indoors: near-black.",
+      "material": "Coated synthetic (PU) patent, not leather; creases stiffly across the toe",
+      "comfort": "No known comfort issue; regular width, pointed toe"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.0
+    }
+  },
+  "stormport": {
+    "before": {
+      "rate": 1.0,
+      "range": 0.05
+    },
+    "fitNote": "Fits true to size in regular width. The heel is roomy, so if you have a narrow heel it may slip; go half a size down. Regular calf fit. Pull-on style with a 3 cm heel.",
+    "colourNote": "Olive green, matching the photos. We have no colour shift to report between daylight and indoor light.",
+    "materialNote": "Rubber upper, as listed. It is stiff and heavy rather than soft or flexible.",
+    "comfortNote": "Stiff, heavy rubber shaft that can rub the shin. Flat footbed with no arch support, so it gets tiring over long days on your feet. Better for short wet-weather trips than 8–10 hour shifts unless you add your own insole.",
+    "photoStatus": "No colour photo changes needed. Add a close-up of the footbed/insole to show it is flat with no arch support. Add a side-on shot showing the shaft against a leg (shin and calf) in natural light.",
+    "feedFacts": {
+      "width": "regular",
+      "toe_box": "Round toe, regular width",
+      "calf_fit": "regular calves",
+      "heel_cm": 3.0,
+      "colour_text": "Olive green; matches photos",
+      "material": "Rubber",
+      "comfort": "Stiff, heavy rubber shaft that can rub the shin; flat footbed with no arch support, tiring on long days"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.0
+    }
   }
 }

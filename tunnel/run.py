@@ -1,18 +1,31 @@
-"""Run the wind tunnel on one product page.
+"""Run the wind tunnel on one or more product pages, one after another.
 
-  uv run python -m tunnel.run --product rosewood --n 6 [--verify] [--headless] [--customers C01,C07]
+  uv run python -m tunnel.run --list                                   # what each case tests
+  uv run python -m tunnel.run --product quick --verify --headless      # 1 mock customer x 4 return reasons, ~5 min
+  uv run python -m tunnel.run --product rosewood,ebariel --n 6 [--verify] [--headless] [--customers C01,C07]
 
-Writes live into the storefront (reviews.json, tunnel.json) and a report to runs/<timestamp>/.
+Writes live into the storefront (reviews.json, tunnel.json) and one report for the whole run:
+runs/<timestamp>/report.html (one card per shopper), plus <product>.json with every detail.
 """
 import argparse
 import json
 import math
+import sys
+import time
 from datetime import datetime
 
 from tunnel import config, html_report
+from tunnel.build_data import CASES
 from tunnel.judge import fix, judge
-from tunnel.personas import build_briefs, entry_for, load_customers, pick
+from tunnel.personas import MOCK, MOCK_BRIEF, build_briefs, entry_for, load_customers, pick
 from tunnel.shopper import shop
+
+# Rosewood's demo shoppers (50% -> 0%), kept fixed so the headline case stays repeatable.
+PINNED = {"rosewood": "C01,C37,C25,C22,C04,C40"}
+NOTES = ("fitNote", "colourNote", "materialNote", "comfortNote", "photoStatus")
+# Named sets for --product. "quick": the mock customer on one shoe per main return reason
+# (too small, too big, colour, uncomfortable).
+SETS = {"quick": "oneameth,clementinne,guavaberry,stormport", "all": ",".join(CASES)}
 
 
 def read(path):
@@ -40,12 +53,13 @@ def run_shoppers(rows, briefs, product, truth, after, headless, on_result=None):
         decision, steps = shop(b.brief, b.shopping_goal, product["id"], product["category"], entry=row["entry"],
                                after=after, headless=headless)
         t = tunnel.get(decision.product_id or "")
-        page_fixes = t and {"fitNote": t.get("fitNote"), "colourNote": t.get("colourNote"),
-                            "photos_reshot_in_natural_light": bool(t.get("photoStatus"))}
-        verdict, sc = judge(row, decision, truth, page_fixes)
+        page_fixes = t and {k: t.get(k) for k in NOTES if k != "photoStatus"} | {
+            "photos_reshot_in_natural_light": bool(t.get("photoStatus"))}
+        verdict, found = judge(row, decision, truth, page_fixes)
         r = {"persona_id": b.persona_id, "label": b.label, "entry": row["entry"], "brief": b.brief, "goal": b.shopping_goal,
              "past": {k: row[k] for k in ("past_product_id", "past_size_bought", "return_bucket", "raw_reason")},
-             "decision": decision.model_dump(), "steps": steps, "size_check": sc, "verdict": verdict.model_dump()}
+             "decision": decision.model_dump(), "steps": steps, "size_check": found.get("size"), "checks": found,
+             "verdict": verdict.model_dump()}
         results.append(r)
         print(f"--> {decision.product_id} size {decision.size} | likely return: {verdict.likely_return} "
               f"({verdict.reason}) | gap: {verdict.page_gap}")
@@ -65,94 +79,85 @@ def review(r, product, names):
             "rating": d["rating"], "text": d["quote"], "likelyReturn": v["likely_return"], "reason": v["reason"]}
 
 
-def report(product, before, after, fixes, results, retest):
-    lines = [f"# Wind tunnel: {product['name']} ({product['type']})", "",
-             f"**Predicted return rate, original page:** {before['rate']:.0%} ± {before['range']:.0%}"]
-    if after:
-        lines.append(f"**After fixes:** {after['rate']:.0%} ± {after['range']:.0%}")
-    lines += ["", "## Weaknesses found", ""]
-    lines += [f"{i}. **{w.gap}** ({w.count} shoppers) — {w.evidence}" for i, w in enumerate(fixes.weaknesses, 1)]
-    lines += ["", "## Suggested fixes (need merchandiser approval)", "",
-              f"- **Fit note:** {fixes.fitNote}", f"- **Colour note:** {fixes.colourNote}",
-              f"- **Photo shot list:** {fixes.photoStatus}",
-              f"- **Feed facts:** `{json.dumps(fixes.feedFacts.model_dump(exclude_none=True))}`",
-              "", "## Site-wide weaknesses", ""] + [f"- {s}" for s in fixes.site_wide]
-    for title, rs in [("Shoppers, original page", results), ("Shoppers, after fixes", retest or [])]:
-        if not rs:
-            continue
-        chose = sum(r["decision"]["product_id"] == product["id"] for r in rs)
-        lines += ["", f"## {title}", "", f"{chose} of {len(rs)} chose {product['name']}.", "",
-                  "| Persona | Entry | Past return | Chose | Expected size | Likely return | Page gap | Quote |",
-                  "|---|---|---|---|---|---|---|---|"]
-        for r in rs:
-            d, v, sc = r["decision"], r["verdict"], r["size_check"] or {}
-            chose = f"{d['product_id']} {d['colour']} {d['size']}" if d["bought"] else "didn't buy"
-            lines.append(f"| {r['label']} | {r['entry']} | {r['past']['raw_reason']} ({r['past']['past_product_id']}) | {chose} | "
-                         f"{sc.get('expected', '—')} | {'yes: ' + v['reason'] if v['likely_return'] else 'no'} | "
-                         f"{v['page_gap'] or '—'} | {d['quote']} |")
-    return "\n".join(lines) + "\n"
-
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--product", default="rosewood")
-    ap.add_argument("--n", type=int, default=6)
-    ap.add_argument("--customers", help="comma-separated persona ids, e.g. C01,C07")
-    ap.add_argument("--verify", action="store_true", help="re-test the same shoppers on the fixed page")
-    ap.add_argument("--headless", action="store_true")
-    a = ap.parse_args()
-
-    products = read(config.PRODUCTS)
-    product = next(p for p in products if p["id"] == a.product)
-    truth = read(config.TRUTH)
-    customers = load_customers()
-    if a.customers:
-        ids = a.customers.split(",")
-        rows = [c for c in customers if c["persona_id"] in ids]
+def run_product(pid, a, products, truth, customers, out):
+    product = next(p for p in products if p["id"] == pid)
+    if a.mock:
+        rows, briefs = [dict(MOCK)], [MOCK_BRIEF]
     else:
-        rows = pick(customers, product["category"], a.n)
-
+        ids = a.customers.split(",") if a.customers else PINNED.get(pid, "").split(",")[: a.n]
+        if ids != [""]:
+            by_id = {c["persona_id"]: c for c in customers}
+            rows = [dict(by_id[i]) for i in ids]
+        else:
+            rows = [dict(c) for c in pick(customers, product, truth[pid], a.n)]
     for i, r in enumerate(rows):
         r["entry"] = entry_for(i)
-    print(f"Building {len(rows)} shoppers from past customers: {[r['persona_id'] for r in rows]}")
-    briefs = build_briefs(rows, product, read(config.VISUAL)[a.product])
+    print(f"\n##### {product['name']}: shoppers {[r['persona_id'] for r in rows]}")
+    if not a.mock:
+        briefs = build_briefs(rows, product, read(config.VISUAL)[pid])
 
     # Replace the illustrative sample reviews for this product; append live as each shopper finishes.
     reviews = read(config.REVIEWS)
-    reviews[a.product] = []
-
+    reviews[pid] = []
     names = {p["id"]: p["name"] for p in products}
 
     def publish(r):
-        reviews[a.product].append(review(r, product, names))
+        reviews[pid].append(review(r, product, names))
         write(config.REVIEWS, reviews)
 
     results = run_shoppers(rows, briefs, product, truth, after=False, headless=a.headless, on_result=publish)
-    before = rate(results, a.product)
+    before = rate(results, pid)
 
     print("\nDrafting fixes...")
-    fixes = fix(product, truth[a.product], results)
+    fixes = fix(product, truth[pid], results)
     tunnel = read(config.TUNNEL)
-    tunnel[a.product] = {"before": before, "fitNote": fixes.fitNote, "colourNote": fixes.colourNote,
-                         "photoStatus": fixes.photoStatus, "feedFacts": fixes.feedFacts.model_dump(exclude_none=True),
-                         "approved": False, "illustrative": False}
+    tunnel[pid] = {"before": before, **{k: getattr(fixes, k) for k in NOTES},
+                   "feedFacts": fixes.feedFacts.model_dump(exclude_none=True), "approved": False, "illustrative": False}
     write(config.TUNNEL, tunnel)
 
     after, retest = None, None
     if a.verify:
         retest = run_shoppers(rows, briefs, product, truth, after=True, headless=a.headless)
-        after = rate(retest, a.product)
-        tunnel[a.product]["after"] = after
+        after = rate(retest, pid)
+        tunnel[pid]["after"] = after
         write(config.TUNNEL, tunnel)
 
+    write(out / f"{pid}.json", {"product": pid, "before": before, "after": after, "fixes": fixes.model_dump(),
+                                "results": results, "retest": retest})
+    print(f"\n{product['name']}  Before: {before}" + (f"  After: {after}" if after else ""))
+
+
+def main():
+    sys.stdout.reconfigure(line_buffering=True)  # progress shows up promptly even when piped to a log
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--product", default="rosewood", help=f"an id, a comma-separated list, or a set: {', '.join(SETS)}")
+    ap.add_argument("--n", type=int, help="shoppers per product (default 6)")
+    ap.add_argument("--mock", action="store_true", help="shop with the one mock customer (always on for quick)")
+    ap.add_argument("--list", action="store_true", help="list the test cases and sets, then exit")
+    ap.add_argument("--customers", help="comma-separated persona ids, e.g. C01,C07 (kept in this order)")
+    ap.add_argument("--verify", action="store_true", help="re-test the same shoppers on the fixed page")
+    ap.add_argument("--headless", action="store_true")
+    a = ap.parse_args()
+    if a.list:
+        truth = read(config.TRUTH)
+        for pid in CASES:
+            print(f"{pid:11} {' | '.join(truth[pid]['issues'])}")
+        print("\nsets: " + "  ".join(f"{k} = {v}" for k, v in SETS.items()))
+        return
+    a.mock = a.mock or a.product == "quick"
+    a.n = a.n or 6
+    pids = SETS.get(a.product, a.product).split(",")
+
+    products, truth, customers = read(config.PRODUCTS), read(config.TRUTH), load_customers()
     out = config.RUNS / datetime.now().strftime("%Y%m%d-%H%M%S")
     out.mkdir(parents=True)
-    write(out / "results.json", {"product": a.product, "before": before, "after": after, "fixes": fixes.model_dump(),
-                                 "results": results, "retest": retest})
-    (out / "report.md").write_text(report(product, before, after, fixes, results, retest))
-    html_report.write(out)
-    print(f"\nBefore: {before}" + (f"  After: {after}" if after else ""))
-    print(f"Report: {out / 'report.html'}")
+    start = time.monotonic()
+    for pid in pids:
+        t0 = time.monotonic()
+        run_product(pid, a, products, truth, customers, out)
+        print(f"({pid} took {(time.monotonic() - t0) / 60:.1f} min)")
+    print(f"\nTotal: {(time.monotonic() - start) / 60:.1f} min for {len(pids)} product(s)")
+    print(f"Report: {html_report.write(out)}")
 
 
 if __name__ == "__main__":

@@ -240,6 +240,8 @@ function ProductPage({ id, version, onAdd }) {
             ))}
           </div>
           {after && t.fitNote && <div className="note fit"><b>Fit</b>{t.fitNote}</div>}
+          {after && t.comfortNote && <div className="note fit"><b>Comfort</b>{t.comfortNote}</div>}
+          {after && t.materialNote && <div className="note colour"><b>Material</b>{t.materialNote}</div>}
 
           <button className="add" onClick={add}>Add to bag</button>
           {msg && <div className="msg">{msg}</div>}
@@ -256,6 +258,7 @@ function ProductPage({ id, version, onAdd }) {
               <li><span>Heel height</span>{p.details.heelCm} cm</li>
               <li><span>Width</span>{after && t.feedFacts?.width === 'narrow' ? 'Narrow' : p.details.width}</li>
               <li><span>Closure</span>{p.details.closure}</li>
+              {after && t.feedFacts?.calf_fit && <li><span>Calf</span>{t.feedFacts.calf_fit}</li>}
             </ul>
           </div>
         </div>
