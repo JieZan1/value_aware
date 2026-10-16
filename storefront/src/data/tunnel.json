@@ -73,7 +73,7 @@
       "rate": 1.0,
       "range": 0.05
     },
-    "fitNote": "Length is true to size, so order your usual size. The toe box is narrow and pointed, and it can pinch across the forefoot if you have wide feet.",
+    "fitNote": "Length is true to size, so take your usual size. The pointed toe box is narrow through the forefoot and can pinch wide feet. If your feet are wide, this style may feel tight across the front.",
     "colourNote": null,
     "materialNote": null,
     "comfortNote": null,
@@ -82,9 +82,7 @@
       "width": "narrow",
       "toe_box": "narrow, pointed",
       "heel_cm": 8.0,
-      "colour_text": "Nude (pale cream nude in photos)",
-      "material": "Suede",
-      "comfort": "No known comfort issue; narrow pointed toe box can pinch wide feet"
+      "material": "Suede"
     },
     "approved": false,
     "illustrative": false,
@@ -120,7 +118,7 @@
       "rate": 1.0,
       "range": 0.05
     },
-    "fitNote": "Runs half a size large. Most people should order half a size down from their usual size (for example, 7.5 if you normally wear an 8). Regular width, pointed toe.",
+    "fitNote": "Runs half a size large. Most people should order half a size down from their usual size (for example, a usual 8 should order 7.5). Regular width.",
     "colourNote": null,
     "materialNote": null,
     "comfortNote": null,
@@ -128,7 +126,7 @@
     "feedFacts": {
       "runs_large": "half",
       "width": "regular",
-      "toe_box": "pointed",
+      "toe_box": "pointed toe",
       "heel_cm": 1.0,
       "colour_text": "Cognac, a warm brown",
       "material": "Leather"
@@ -145,19 +143,19 @@
       "rate": 1.0,
       "range": 0.05
     },
-    "fitNote": "True to size; order your usual size. Regular width with a pointed toe, so shoppers with wide feet may find it snug.",
-    "colourNote": "Black Cherry is a deep oxblood red in daylight and looks near-black indoors. It is not jet black, as the studio photo suggests.",
-    "materialNote": "The upper is coated synthetic (PU) patent, not leather, and it creases stiffly across the toe.",
-    "comfortNote": "No known comfort issue with this style. It has a 4 cm heel and a pointed toe, so it is a regular-width fit.",
-    "photoStatus": "Reshoot or add photos of Black Cherry: (1) in natural daylight near a window, showing the oxblood red; (2) indoors under normal artificial light, showing the near-black look; (3) a side-by-side or on-foot shot in each light. Add a close-up of the crinkled patent toe. Label each photo with the light it was taken in, and don't rely on the white studio shot alone.",
+    "fitNote": "True to size, so order your usual size. Regular width with a pointed toe. The heel is 4 cm.",
+    "colourNote": "Black Cherry looks jet black in the studio photo. In daylight it is a deep oxblood red. Indoors it reads as near-black.",
+    "materialNote": "The upper is coated synthetic (PU) patent, not leather. It creases stiffly across the toe.",
+    "comfortNote": "No known comfort issues. The width is regular only, so if you have wide feet, the pointed toe may feel snug.",
+    "photoStatus": "Reshoot Black Cherry in natural daylight, outdoors or by a window, to show the oxblood red. Also shoot it indoors under normal room lighting to show the near-black look. Include a side view, a top-down toe view, and a close-up of the crinkled patent. Keep the white-backdrop studio shot but caption it clearly. Label each photo with its light (daylight or indoor).",
     "feedFacts": {
       "width": "regular",
       "toe_box": "pointed",
       "heel_cm": 4.0,
-      "colour_text": "Deep oxblood red in daylight, near-black indoors (not jet black)",
-      "colour_by_light": "Daylight: deep oxblood red. Indoors: near-black.",
+      "colour_text": "Black Cherry: deep oxblood red in daylight, near-black indoors",
+      "colour_by_light": "Deep oxblood red in daylight; near-black indoors. The studio photo shows it as jet black.",
       "material": "Coated synthetic (PU) patent, not leather; creases stiffly across the toe",
-      "comfort": "No known comfort issue; regular width, pointed toe"
+      "comfort": "No known comfort issue"
     },
     "approved": false,
     "illustrative": false,
@@ -171,25 +169,26 @@
       "rate": 1.0,
       "range": 0.05
     },
-    "fitNote": "Fits true to size in regular width. The heel is roomy, so if you have a narrow heel it may slip; go half a size down. Regular calf fit. Pull-on style with a 3 cm heel.",
-    "colourNote": "Olive green, matching the photos. We have no colour shift to report between daylight and indoor light.",
-    "materialNote": "Rubber upper, as listed. It is stiff and heavy rather than soft or flexible.",
-    "comfortNote": "Stiff, heavy rubber shaft that can rub the shin. Flat footbed with no arch support, so it gets tiring over long days on your feet. Better for short wet-weather trips than 8–10 hour shifts unless you add your own insole.",
-    "photoStatus": "No colour photo changes needed. Add a close-up of the footbed/insole to show it is flat with no arch support. Add a side-on shot showing the shaft against a leg (shin and calf) in natural light.",
+    "fitNote": "True to size, so order your usual size. The heel is roomy, so if you have narrow heels and they slip, go half a size down. Width is regular and the calf fit is regular.",
+    "colourNote": "Olive reads as olive green in photos and in person, with no shift between daylight and indoor light.",
+    "materialNote": "The upper is rubber, as listed.",
+    "comfortNote": "The rubber shaft is stiff and heavy and can rub the shin. The footbed is flat with no arch support, so it can get tiring on long days on your feet. It suits wet-weather trips better than a full 10-hour shift.",
+    "photoStatus": "No colour fix is needed. Optionally add a side-on shot showing shaft height, and a shot of the flat footbed and lug sole so shoppers can see the lack of cushioning.",
     "feedFacts": {
       "width": "regular",
       "toe_box": "Round toe, regular width",
       "calf_fit": "regular calves",
       "heel_cm": 3.0,
-      "colour_text": "Olive green; matches photos",
+      "colour_text": "Olive",
+      "colour_by_light": "Olive looks the same in daylight and indoors",
       "material": "Rubber",
-      "comfort": "Stiff, heavy rubber shaft that can rub the shin; flat footbed with no arch support, tiring on long days"
+      "comfort": "Stiff, heavy rubber shaft that can rub the shin. Flat footbed with no arch support. Can be tiring on long days."
     },
     "approved": false,
     "illustrative": false,
     "after": {
       "rate": 0.0,
-      "range": 0.0
+      "range": 0.05
     }
   }
 }
