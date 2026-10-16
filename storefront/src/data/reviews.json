@@ -1,0 +1,78 @@
+{
+  "rosewood": [
+    {
+      "persona": "Size 6, wide feet, weekend errands",
+      "kind": "shopper",
+      "size": 6.0,
+      "rating": 3,
+      "text": "The Rosewood pink suede looks just like the ad, so I ordered my usual 6 and added it to my bag. The page lists width as \"Regular\" and gives no fit guidance, so I'm a bit nervous about my wide feet.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 9.5, narrow feet, between sizes, everyday",
+      "kind": "shopper",
+      "size": 9.5,
+      "rating": 3,
+      "text": "The pink suede is exactly what I saw in the ad, so I bought it in my usual 9.5. The page doesn't say whether it runs true to size, and I have narrow feet and a slipping heel, so that worries me.",
+      "likelyReturn": false,
+      "reason": null
+    },
+    {
+      "persona": "Size 9, regular width, nurse on 12-hour shifts · bought Belide instead",
+      "kind": "shopper",
+      "size": 9.0,
+      "rating": 3,
+      "text": "Smooth leather, regular width, a modest 4 cm heel and an almond toe, so it should work for a 12-hour shift. The page says nothing about cushioning, insoles or sole grip, which I'd want to know as a nurse.",
+      "likelyReturn": true,
+      "reason": "Too big"
+    },
+    {
+      "persona": "Size 7, narrow feet, particular about colour",
+      "kind": "shopper",
+      "size": 7.0,
+      "rating": 4,
+      "text": "The Rosewood pink suede is exactly what the ad showed, so I grabbed my usual 7. I wish the page told me more about fit for narrow feet.",
+      "likelyReturn": true,
+      "reason": "Colour"
+    },
+    {
+      "persona": "Size 7.5, regular width, wedding guest",
+      "kind": "shopper",
+      "size": 7.5,
+      "rating": 4,
+      "text": "The pink suede looks lovely and the low 4 cm heel seems manageable for a long wedding. I wish the page said more about comfort and fit, but I went with my usual 7.5.",
+      "likelyReturn": false,
+      "reason": null
+    },
+    {
+      "persona": "Size 8.5, regular width, between sizes, evenings out · bought Aahliyah instead",
+      "kind": "shopper",
+      "size": 8.5,
+      "rating": 3,
+      "text": "Cream faux suede with a low 4 cm heel looked right for a night out and was the closest to my colour taste. The page said nothing about fit or sizing, and it's not knit, so I'm going with my usual 8.5 and hoping the heel doesn't slip.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    }
+  ],
+  "elliette": [
+    {
+      "persona": "Size 7, regular width",
+      "kind": "shopper",
+      "size": 7,
+      "rating": 3,
+      "text": "Love the look, but nothing tells me it runs small. I'd order my usual 7.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 8.5, narrow feet",
+      "kind": "shopper",
+      "size": 8.5,
+      "rating": 4,
+      "text": "Heel looks walkable. I'd keep it if the fit is true to size.",
+      "likelyReturn": false,
+      "reason": null
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "rosewood": {
+    "before": {
+      "rate": 0.5,
+      "range": 0.25
+    },
+    "fitNote": "True to size, with a narrow toe box. If you have wide feet, go up half a size. If you have narrow feet, your usual size should fit.",
+    "colourNote": "Rosewood is a deep red-brown with a slight purple cast. It is darker than it looks on most screens, and not the bright rosy pink some photos suggest.",
+    "photoStatus": "Reshoot or recolour Rosewood so it matches the real deep red-brown with a purple cast. Shoot in natural daylight with no filter or warm grading. Shots needed: front three-quarter, side profile showing the 4 cm stacked heel, top-down view of the almond toe and toe box, close-up of the suede nap, and one next to the Black colourway for reference. Check the final images on a phone and on a desktop screen against the physical boot.",
+    "feedFacts": {
+      "width": "narrow",
+      "heel_cm": 4.0,
+      "colour_text": "Deep red-brown with a slight purple cast; darker than it appears on most screens",
+      "comfort": "No known comfort issues"
+    },
+    "approved": false,
+    "illustrative": false,
+    "after": {
+      "rate": 0.0,
+      "range": 0.05
+    }
+  },
+  "elliette": {
+    "before": {
+      "rate": 0.41,
+      "range": 0.05
+    },
+    "after": {
+      "rate": 0.31,
+      "range": 0.05
+    },
+    "fitNote": "Runs small: 70% of shoppers who returned it for size found it too small. We suggest half a size up.",
+    "colourNote": null,
+    "photoStatus": null,
+    "feedFacts": {
+      "runs_small": "half",
+      "width": "regular"
+    },
+    "approved": true,
+    "illustrative": true
+  }
+}

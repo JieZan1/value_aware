@@ -1,0 +1,832 @@
+{
+  "product": "rosewood",
+  "before": {
+    "rate": 0.5,
+    "range": 0.25
+  },
+  "after": {
+    "rate": 0.0,
+    "range": 0.05
+  },
+  "fixes": {
+    "weaknesses": [
+      {
+        "gap": "The page says width is \"Regular\" and gives no fit guidance. It doesn't say the boot is true to size or that the toe box is narrow, so wide-footed shoppers have no cue to size up.",
+        "count": 4,
+        "evidence": "Size 6 wide-footed shopper bought her usual 6 and is a likely \"Too small\" return: \"The page says the width is 'Regular' and doesn't say how the boots fit, so I'm a bit unsure about my wide feet.\" Three other Rosewood shoppers also asked whether it runs true to size."
+      },
+      {
+        "gap": "The Rosewood photo and swatch show bright rosy pink. The real boot is a deep red-brown with a slight purple cast, darker than on most screens. The page has no colour description or note on this.",
+        "count": 4,
+        "evidence": "All four Rosewood shoppers bought it expecting pink. The colour-particular size 7 shopper, who \"buys what the photo shows,\" is a likely \"Colour\" return: \"The Rosewood pink suede is exactly what I saw in the ad.\""
+      }
+    ],
+    "fitNote": "True to size with a narrow toe box. Take your usual size if your feet are narrow or regular. If your feet are wide, consider going up half a size.",
+    "colourNote": "Rosewood is a deep red-brown with a slight purple cast. It is darker than it looks on most screens and is not bright pink.",
+    "photoStatus": "Reshoot Rosewood in natural daylight with no colour filter or heavy retouching, and match the swatch and ad images to the real boot colour. Shots needed: front three-quarter, side profile showing the 4 cm stacked heel and side zip, top-down view of the almond toe to show how narrow it is, a close-up of the suede nap, and an on-foot shot. Add Rosewood next to Black for colour reference. Check the final images against the physical boot on a calibrated screen and a phone.",
+    "feedFacts": {
+      "runs_small": null,
+      "runs_large": null,
+      "width": "narrow",
+      "heel_cm": 4.0,
+      "colour_text": "Deep red-brown with a slight purple cast; darker than it appears on most screens",
+      "comfort": null
+    },
+    "site_wide": [
+      "Product pages carry no size or fit guidance (true to size, runs small or large). Shoppers on every product asked \"does it run true?\" and kept their usual size. On Belide that led to a likely \"Too big\" return.",
+      "There is no size guide, and \"Width: Regular\" is the only width information. Wide-footed and narrow-footed shoppers can't tell whether a boot's toe box or heel will suit them.",
+      "Pages give no comfort construction details such as lining, insole or cushioning, sole type, or weight. Shoppers who stand for long periods (a nurse on 12-hour shifts, a wedding guest, an evening-out shopper) asked for these. State them only where they are known.",
+      "Care instructions for suede and customer reviews are missing.",
+      "Ad imagery and swatch colours aren't checked against the real product colour. Rosewood shows the gap, so other colourways should be checked too."
+    ]
+  },
+  "results": [
+    {
+      "persona_id": "C01",
+      "label": "Size 6, wide feet, weekend errands",
+      "entry": "ad",
+      "brief": "You wear a US 6 (wide feet) and have worn Sam Edelman and Vans. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You'll be wearing them for weekend errands, about 3 hours on your feet. You usually order your normal size without checking a size guide.",
+      "goal": "Find a pair of boots for weekend errands, probably the Rosewood.",
+      "past": {
+        "past_product_id": "aahliyah",
+        "past_size_bought": "6.0",
+        "return_bucket": "too_small",
+        "raw_reason": "Too small"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 6.0,
+        "bought": true,
+        "rating": 3,
+        "quote": "The rosy pink suede is exactly what caught my eye in the ad, so I got my usual 6 in Rosewood. The page says the width is \"Regular\" and doesn't say how the boots fit, so I'm a bit unsure about my wide feet.",
+        "visual_cues_used": [
+          "bright rosy pink matte napped suede",
+          "almond toe",
+          "heeled ankle boot shape"
+        ],
+        "site_facts_used": [
+          "Heel height 4 cm",
+          "Width: Regular",
+          "Side zip closure",
+          "Almond toe, suede"
+        ],
+        "info_wished_for": [
+          "Whether the boots run true to size",
+          "Wide width option or how roomy the toe box is",
+          "Comfort for 3 hours of standing",
+          "Lining and sole details",
+          "Size guide"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “6” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 6.5,
+        "chosen": 6.0,
+        "ok": false,
+        "result": "Too small"
+      },
+      "verdict": {
+        "likely_return": true,
+        "reason": "Too small",
+        "page_gap": "The page didn't say the toe box is narrow, so wide-footed shoppers should size up (about half a size). It had no size or fit guidance and no wide-foot advice. It also showed Rosewood as bright rosy pink when the real colour is a deeper red-brown with a purple cast. That colour mismatch doesn't drive a return here, but it should be fixed.",
+        "evidence": "Wide-footed shopper bought her usual 6.0 without a size guide, and the computed size check expects 6.5 (result \"Too small\"). The boot also has a narrow toe box and the page only said \"Regular\" width, which matches her past too-small return."
+      }
+    },
+    {
+      "persona_id": "C37",
+      "label": "Size 9.5, narrow feet, between sizes, everyday",
+      "entry": "ad",
+      "brief": "You wear a US 9.5 with narrow feet, and you've worn Dr. Martens and Naturalizer. You're between sizes, and your heel often slips in shoes. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You'd wear them for everyday wear, about 5 hours on your feet.",
+      "goal": "Find a pair of boots for everyday wear, probably the Rosewood.",
+      "past": {
+        "past_product_id": "nevada",
+        "past_size_bought": "10.0",
+        "return_bucket": "too_big",
+        "raw_reason": "Too big"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 9.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "The pink suede boot looks just like the ad and I love the colour, so I got it in my usual 9.5. The page doesn't say how it fits, and I have narrow feet and heel slip, so I'm guessing a bit.",
+        "visual_cues_used": [
+          "bright rosy pink suede",
+          "soft matte napped finish",
+          "tapered almond toe",
+          "low stacked heel"
+        ],
+        "site_facts_used": [
+          "Width: Regular",
+          "Heel height 4 cm",
+          "Side zip closure",
+          "Suede material",
+          "No sizing advice, so I kept my usual size"
+        ],
+        "info_wished_for": [
+          "Whether it runs true to size, small or large",
+          "Whether a narrow width is available",
+          "Heel fit or slippage info",
+          "Lining and cushioning details for 5 hours of wear",
+          "Shaft height"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “9.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 9.5,
+        "chosen": 9.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The page didn't say the boot runs true to size. It didn't say the toe box is narrow, which suits this narrow-footed shopper. It gave no heel-fit or lining details. It also showed the Rosewood colourway as bright rosy pink when it is really a darker red-brown with a purple cast. That mismatch could cause a colour return from a more colour-sensitive shopper.",
+        "evidence": "The shopper bought their usual 9.5, which is true to size, and the boot has no comfort issue. They said they loved the pink colour, but the real colour is a deep red-brown. The colour check says they aren't colour-sensitive, so it doesn't count as a return."
+      }
+    },
+    {
+      "persona_id": "C25",
+      "label": "Size 9, regular width, nurse on 12-hour shifts",
+      "entry": "browse",
+      "brief": "You wear a US 9 with regular width feet, and you've worn Skechers and Clarks. You work as a nurse on 12-hour shifts, so you're on your feet about 12 hours. Comfort matters more to you than looks. You prefer white or tan colours and smooth leather.",
+      "goal": "Find the pair of boots that suits you best for long nursing shifts.",
+      "past": {
+        "past_product_id": "aahliyah",
+        "past_size_bought": "9.0",
+        "return_bucket": "uncomfortable",
+        "raw_reason": "Uncomfortable"
+      },
+      "decision": {
+        "product_id": "belide",
+        "colour": "Cognac",
+        "size": 9.0,
+        "bought": true,
+        "rating": 3,
+        "quote": "Smooth leather, almond toe, a low 4 cm heel and regular width. That's about as sensible as this boot list gets for a 12-hour shift. I wish the page said something about cushioning or insoles, and there was a white or tan option.",
+        "visual_cues_used": [
+          "smooth leather with soft sheen",
+          "softly tapered almond toe",
+          "warm cognac colour, closest to tan"
+        ],
+        "site_facts_used": [
+          "Material: Leather",
+          "Heel height 4 cm",
+          "Width: Regular",
+          "Almond toe",
+          "Buckle closure"
+        ],
+        "info_wished_for": [
+          "Cushioning or insole details",
+          "Sole type and slip resistance",
+          "Weight of the boot",
+          "Sizing guidance (runs true?)",
+          "Whether a tan or white colour is available"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/search?q=Boots",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/belide",
+        "snapshot",
+        "click",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/braxtonn",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/belide",
+        "click",
+        "click: “9” button",
+        "click: “Add to bag” button",
+        "snapshot",
+        "click: “Cognac” button",
+        "click: “9” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 8.5,
+        "chosen": 9.0,
+        "ok": false,
+        "result": "Too big"
+      },
+      "verdict": {
+        "likely_return": true,
+        "reason": "Too big",
+        "page_gap": "The page never said the boot runs half a size large (order half a size down). It also gave no cushioning, insole, sole or weight details, which this shopper on her feet for 12 hours asked for.",
+        "evidence": "The shopper bought her usual 9.0 without any sizing guidance (she asked \"runs true?\"), but the boot runs half a size large, so she needed an 8.5 and the 9.0 will be too big; the comfort check is clean, so size is the cause."
+      }
+    },
+    {
+      "persona_id": "C22",
+      "label": "Size 7, narrow feet, particular about colour",
+      "entry": "ad",
+      "brief": "You wear a US 7 with narrow feet, and you've worn Steve Madden and Converse. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You're very particular about colour and finish and buy what the photo shows. You'd wear them for everyday wear, about 2 hours on your feet.",
+      "goal": "Find a pair of boots for everyday wear, probably the Rosewood.",
+      "past": {
+        "past_product_id": "elliette",
+        "past_size_bought": "7.0",
+        "return_bucket": "look",
+        "raw_reason": "Not what I expected"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 7.0,
+        "bought": true,
+        "rating": 4,
+        "quote": "The Rosewood pink suede is exactly what I saw in the ad, so I got it in my usual 7. I wish the page said more about fit, since my feet are narrow and the width is only listed as \"Regular\".",
+        "visual_cues_used": [
+          "bright rosy pink matte napped suede",
+          "almond toe shape",
+          "heeled ankle boot silhouette"
+        ],
+        "site_facts_used": [
+          "Colour: Rosewood swatch",
+          "Suede material",
+          "Almond toe",
+          "Heel height 4 cm",
+          "Width: Regular",
+          "No sizing guidance, so I kept my usual size 7"
+        ],
+        "info_wished_for": [
+          "Whether it runs true to size",
+          "Narrow-width fit information",
+          "Comfort and cushioning for 2 hours of wear",
+          "Suede care and colour accuracy notes",
+          "Customer reviews"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “7” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 7.0,
+        "chosen": 7.0,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": true,
+        "reason": "Colour",
+        "page_gap": "The page didn't say that the Rosewood photo shows a brighter pink than the real boot, which is a deep red-brown with a slight purple cast and looks darker than on most screens. It needed an accurate colour description or a true-colour photo. It also never said the toe box is narrow, which would have helped with fit questions; the 'Regular' width and the lack of sizing guidance left the shopper unsure.",
+        "evidence": "The shopper, who is colour-particular and \"buys what the photo shows,\" bought Rosewood because of the bright rosy pink in the ad, but the real colour is a deep red-brown with a purple cast, so the colour check flags a return; size is fine (7.0 true to size) and there is no comfort issue."
+      }
+    },
+    {
+      "persona_id": "C04",
+      "label": "Size 7.5, regular width, wedding guest",
+      "entry": "ad",
+      "brief": "You wear a US 7.5 with regular width feet, and you've worn Converse and Naturalizer. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You need boots for a wedding you're attending as a guest, about 7 hours on your feet. You usually order your normal size without checking a size guide.",
+      "goal": "Find a pair of boots to wear as a wedding guest, probably the Rosewood.",
+      "past": {
+        "past_product_id": "wicoenia",
+        "past_size_bought": "7.5",
+        "return_bucket": "too_small",
+        "raw_reason": "Too small"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 7.5,
+        "bought": true,
+        "rating": 4,
+        "quote": "The rosy pink suede is just what I saw in the ad, and a 4 cm heel should be fine for a long wedding. I wish the page said more about comfort and sizing.",
+        "visual_cues_used": [
+          "bright rosy pink matte suede",
+          "almond toe",
+          "low heeled ankle boot shape"
+        ],
+        "site_facts_used": [
+          "Heel height 4 cm",
+          "Width: Regular",
+          "Almond toe",
+          "Side zip closure",
+          "Colour Rosewood available in size 7.5"
+        ],
+        "info_wished_for": [
+          "Fit guidance (true to size?)",
+          "Cushioning or insole comfort for 7 hours standing",
+          "Lining and sole details",
+          "Care instructions for suede"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “7.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 7.5,
+        "chosen": 7.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The page didn't say the fit is true to size, and it didn't mention the narrow toe box, which is worth flagging for a 7-hour wear. It also didn't say that Rosewood is a deep red-brown with a slight purple cast, darker than the bright pink in the photo. Care instructions, lining and sole details, and cushioning info were missing too. None of these gaps is likely to cause a return for this shopper.",
+        "evidence": "She bought her usual 7.5, which matches the true-to-size fit, and the product has no comfort issue. The photo overstated how pink the Rosewood is (it's really a deep red-brown), but the colour check says she isn't colour-sensitive, so it doesn't trigger a return, and she rated it 4."
+      }
+    },
+    {
+      "persona_id": "C40",
+      "label": "Size 8.5, regular width, between sizes, evenings out",
+      "entry": "browse",
+      "brief": "You wear a US 8.5 with regular width feet, and you've worn Vans and Converse. You're between sizes, and your heel often slips in shoes. You're shopping for evenings out, about 7 hours on your feet. You like tan and cream colours and knit textures.",
+      "goal": "Find the pair of boots that suits you best for evenings out.",
+      "past": {
+        "past_product_id": "goer",
+        "past_size_bought": "8.5",
+        "return_bucket": "too_big",
+        "raw_reason": "Too big"
+      },
+      "decision": {
+        "product_id": "braxtonn",
+        "colour": "Tan",
+        "size": 8.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "Tan suede Chelsea with a round toe and a modest 5 cm heel looks right for long evenings on my feet. The page is thin, though. It says nothing about fit or sizing, and nothing about heel grip, which matters since my heels slip.",
+        "visual_cues_used": [
+          "tan colour in photo",
+          "soft matte napped suede texture",
+          "rounded, roomy-looking toe"
+        ],
+        "site_facts_used": [
+          "Regular width",
+          "Heel height 5 cm",
+          "Pull-on closure",
+          "Round toe",
+          "Material: Suede"
+        ],
+        "info_wished_for": [
+          "Whether it runs true to size, since I'm between sizes",
+          "Heel grip or how snug the ankle fits",
+          "Cushioning or insole comfort for 7 hours standing",
+          "Lining and sole details"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1#/search?q=Boots",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/braxtonn",
+        "snapshot",
+        "click",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/goer",
+        "snapshot",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1#/product/braxtonn",
+        "snapshot",
+        "click",
+        "click",
+        "click",
+        "snapshot",
+        "click: “Tan” button",
+        "click: “8.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 8.5,
+        "chosen": 8.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The page didn't say the shoe runs true to size, which mattered because the shopper is between sizes and had a past too-big return. It also gave nothing on heel grip or ankle snugness, cushioning or insole, or lining and sole. A \"true to size\" note and a few comfort and heel-fit details would have removed the doubt.",
+        "evidence": "Shopper bought 8.5 in Tan; the size check passes (true to size, expected 8.5), the colour matches the photo, and there is no comfort issue, so nothing points to a return despite the 3-star rating and the heel-slip worry."
+      }
+    }
+  ],
+  "retest": [
+    {
+      "persona_id": "C01",
+      "label": "Size 6, wide feet, weekend errands",
+      "entry": "ad",
+      "brief": "You wear a US 6 (wide feet) and have worn Sam Edelman and Vans. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You'll be wearing them for weekend errands, about 3 hours on your feet. You usually order your normal size without checking a size guide.",
+      "goal": "Find a pair of boots for weekend errands, probably the Rosewood.",
+      "past": {
+        "past_product_id": "aahliyah",
+        "past_size_bought": "6.0",
+        "return_bucket": "too_small",
+        "raw_reason": "Too small"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 6.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "The ad made these look bright rosy pink, but the page says Rosewood is a deep red-brown and not bright pink. I bought them anyway because I like the shape. I went up half a size because the page said wide feet should.",
+        "visual_cues_used": [
+          "soft matte napped suede look",
+          "almond toe shape",
+          "heeled ankle boot silhouette"
+        ],
+        "site_facts_used": [
+          "Rosewood is a deep red-brown with a slight purple cast, not bright pink",
+          "Fit: true to size with a narrow toe box; if your feet are wide, consider going up half a size",
+          "Width: Narrow",
+          "Heel height 4 cm",
+          "Side zip closure"
+        ],
+        "info_wished_for": [
+          "A photo that shows the true colour, since it didn't match the ad",
+          "A wide-width option",
+          "Comfort details such as cushioning or insole for 3 hours on my feet",
+          "Whether the boot comes in a pink colour"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “6.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 6.5,
+        "chosen": 6.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The page did its job on size and colour. The remaining gaps are minor: it gives no cushioning or insole details for 3 hours of wear, and it offers no wide-width option. The ad's bright-pink imagery also doesn't match the product, which is an ad-to-page inconsistency rather than a page failure.",
+        "evidence": "The shopper followed the page's wide-foot advice and went up to 6.5, which matches the expected size. They also read the colour note and knowingly bought the deep red-brown despite the ad. The size and colour checks both pass and the boot has no comfort issue, so a return is unlikely."
+      }
+    },
+    {
+      "persona_id": "C37",
+      "label": "Size 9.5, narrow feet, between sizes, everyday",
+      "entry": "ad",
+      "brief": "You wear a US 9.5 with narrow feet, and you've worn Dr. Martens and Naturalizer. You're between sizes, and your heel often slips in shoes. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You'd wear them for everyday wear, about 5 hours on your feet.",
+      "goal": "Find a pair of boots for everyday wear, probably the Rosewood.",
+      "past": {
+        "past_product_id": "nevada",
+        "past_size_bought": "10.0",
+        "return_bucket": "too_big",
+        "raw_reason": "Too big"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 9.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "The ad made these look bright rosy pink, but the page says Rosewood is a deep red-brown and not bright pink. I still bought them because the suede and almond toe are what I liked and the fit note suits narrow feet, but I'm a bit unsure about the colour.",
+        "visual_cues_used": [
+          "Soft matte napped suede look",
+          "Tapered almond toe",
+          "Low stacked heel on an ankle boot"
+        ],
+        "site_facts_used": [
+          "Rosewood is a deep red-brown with a slight purple cast, darker than on most screens, and not bright pink",
+          "Fit: True to size with a narrow toe box; take your usual size if your feet are narrow or regular",
+          "Width: Narrow",
+          "Heel height 4 cm",
+          "Side zip closure"
+        ],
+        "info_wished_for": [
+          "A bright pink colour option",
+          "Advice on heel slip or how snug the heel cup is",
+          "How the sizing works if you're between sizes",
+          "Cushioning or comfort for 5 hours of wear",
+          "A photo of the actual colour in different light"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/",
+        "snapshot",
+        "click",
+        "click",
+        "click",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "snapshot",
+        "click",
+        "click",
+        "click",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “9.5” button",
+        "click: “Add to bag” button",
+        "snapshot",
+        "snapshot",
+        "snapshot",
+        "click: “9.5” button",
+        "click: “Add to bag” button",
+        "snapshot"
+      ],
+      "size_check": {
+        "expected": 9.5,
+        "chosen": 9.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "Page did its job on size and colour, but it didn't address heel-slip or heel-cup snugness, between-sizes guidance, or show the colour in different light. A heel-fit note and a multi-light colour photo would remove the remaining doubt.",
+        "evidence": "Shopper bought their usual 9.5 (size check ok, true to size, narrow toe box suits narrow feet), the colour check shows they weren't misled since the page disclosed the deep red-brown, and there is no comfort issue, so only mild colour doubt remains."
+      }
+    },
+    {
+      "persona_id": "C25",
+      "label": "Size 9, regular width, nurse on 12-hour shifts",
+      "entry": "browse",
+      "brief": "You wear a US 9 with regular width feet, and you've worn Skechers and Clarks. You work as a nurse on 12-hour shifts, so you're on your feet about 12 hours. Comfort matters more to you than looks. You prefer white or tan colours and smooth leather.",
+      "goal": "Find the pair of boots that suits you best for long nursing shifts.",
+      "past": {
+        "past_product_id": "aahliyah",
+        "past_size_bought": "9.0",
+        "return_bucket": "uncomfortable",
+        "raw_reason": "Uncomfortable"
+      },
+      "decision": {
+        "product_id": "braxtonn",
+        "colour": "Tan",
+        "size": 9.0,
+        "bought": true,
+        "rating": 3,
+        "quote": "Tan with a round, roomy toe is what I'd want for 12-hour shifts, so I went with the Braxtonn in my usual 9. The page says nothing about cushioning or support, and it's suede rather than the smooth leather I like.",
+        "visual_cues_used": [
+          "Photo caption: tan colour",
+          "Rounded toe, roomy-looking front",
+          "Soft matte suede look"
+        ],
+        "site_facts_used": [
+          "Round toe",
+          "Width: Regular",
+          "Heel height 5 cm",
+          "Pull-on closure",
+          "Material: Suede"
+        ],
+        "info_wished_for": [
+          "Insole cushioning or arch support details",
+          "Sole type and slip resistance",
+          "Boot weight",
+          "Whether sizing runs true",
+          "Easy-clean or water resistance info",
+          "Smooth leather option in tan or white"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/search?q=Boots",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/belide",
+        "snapshot",
+        "click: Belide",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/braxtonn",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/wicoenia",
+        "snapshot",
+        "click: Tan swatch",
+        "click: Size 9",
+        "click: Add to bag",
+        "snapshot",
+        "click: Remove",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/braxtonn",
+        "snapshot",
+        "click: Remove",
+        "click: Tan swatch",
+        "click: Size 9",
+        "snapshot",
+        "click: Close bag",
+        "click: Tan swatch",
+        "click: Size 9",
+        "click: Add to bag",
+        "snapshot",
+        "snapshot",
+        "snapshot",
+        "click: Size 9",
+        "click: Add to bag",
+        "snapshot",
+        "snapshot"
+      ],
+      "size_check": {
+        "expected": 9.0,
+        "chosen": 9.0,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "Page didn't cover cushioning/arch support, sole and slip resistance, weight, true-to-size fit, or care/water resistance. The shopper bought anyway and nothing is wrong, so these are minor confidence gaps and not a return driver.",
+        "evidence": "Size 9.0 matches expected true-to-size fit, tan matches the photo, and the product has no comfort issue, so despite the 12-hour shifts and a 3-star rating the purchase should hold."
+      }
+    },
+    {
+      "persona_id": "C22",
+      "label": "Size 7, narrow feet, particular about colour",
+      "entry": "ad",
+      "brief": "You wear a US 7 with narrow feet, and you've worn Steve Madden and Converse. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You're very particular about colour and finish and buy what the photo shows. You'd wear them for everyday wear, about 2 hours on your feet.",
+      "goal": "Find a pair of boots for everyday wear, probably the Rosewood.",
+      "past": {
+        "past_product_id": "elliette",
+        "past_size_bought": "7.0",
+        "return_bucket": "look",
+        "raw_reason": "Not what I expected"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 7.0,
+        "bought": true,
+        "rating": 2,
+        "quote": "The ad and the listing showed a bright rosy pink, but the product page says it's a deep red-brown and \"not bright pink\". I bought the shape and suede anyway, but I'm disappointed the colour doesn't match what drew me in.",
+        "visual_cues_used": [
+          "Almond toe and low stacked heel shape",
+          "Matte napped suede finish",
+          "Listing photo caption said bright rosy pink, which is what attracted me"
+        ],
+        "site_facts_used": [
+          "Rosewood is a deep red-brown with a slight purple cast, not bright pink",
+          "True to size with a narrow toe box; take usual size if feet are narrow or regular",
+          "Width: Narrow",
+          "Heel height 4 cm"
+        ],
+        "info_wished_for": [
+          "A true-to-colour photo that matches the bright pink in the ad",
+          "A pink colour option",
+          "Why the listing and product page describe the colour differently",
+          "Cushioning or comfort details for 2 hours of wear"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/",
+        "snapshot",
+        "click",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "click",
+        "snapshot",
+        "click",
+        "click",
+        "click",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “7” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 7.0,
+        "chosen": 7.0,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The product page did its job on colour and fit. The remaining problem is that the ad and listing photo caption still said \"bright rosy pink\", which contradicts the product page. Make the ad and listing copy and imagery match the true deep red-brown, or offer a real pink colourway. A line on cushioning would also help.",
+        "evidence": "The shopper chose size 7.0, which is correct, and bought Rosewood knowing the page called it deep red-brown and \"not bright pink\". The colour check shows they weren't misled by the photo and predicts no return. There's no comfort issue for 2 hours on their feet, though the 2-star rating shows they're disappointed."
+      }
+    },
+    {
+      "persona_id": "C04",
+      "label": "Size 7.5, regular width, wedding guest",
+      "entry": "ad",
+      "brief": "You wear a US 7.5 with regular width feet, and you've worn Converse and Naturalizer. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You need boots for a wedding you're attending as a guest, about 7 hours on your feet. You usually order your normal size without checking a size guide.",
+      "goal": "Find a pair of boots to wear as a wedding guest, probably the Rosewood.",
+      "past": {
+        "past_product_id": "wicoenia",
+        "past_size_bought": "7.5",
+        "return_bucket": "too_small",
+        "raw_reason": "Too small"
+      },
+      "decision": {
+        "product_id": "rosewood",
+        "colour": "Rosewood",
+        "size": 7.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "The ad made it look bright rosy pink, but the page says it's a deep red-brown and not bright pink. I still bought it in my usual 7.5 because the fit note says true to size. I'm a bit unsure about the colour.",
+        "visual_cues_used": [
+          "soft matte napped suede look",
+          "almond toe",
+          "heeled ankle boot shape"
+        ],
+        "site_facts_used": [
+          "Rosewood is a deep red-brown with a slight purple cast, not bright pink",
+          "Fit: true to size with a narrow toe box; take usual size if feet are narrow or regular",
+          "Heel height 4 cm",
+          "Side zip closure"
+        ],
+        "info_wished_for": [
+          "A photo showing the true colour",
+          "Cushioning or comfort info for 7 hours of standing",
+          "A pink colour option",
+          "Whether the narrow toe box is tight for regular-width feet"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/rosewood",
+        "snapshot",
+        "click: “Rosewood” button",
+        "click: “7.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 7.5,
+        "chosen": 7.5,
+        "ok": true,
+        "result": null
+      },
+      "verdict": {
+        "likely_return": false,
+        "reason": null,
+        "page_gap": "The page mostly did its job. Remaining minor gap: the ad/hero photo still showed bright rosy pink, which conflicted with the text. Reshot natural-light photos would fix that. It also didn't say whether the narrow toe box feels snug on regular-width feet over 7 hours. Her past too-small return makes that a mild risk, but the size check says this fit is fine.",
+        "evidence": "Size check is ok (7.5 expected and chosen), colour check shows not misled or colour-sensitive because the page's colour note told her it's deep red-brown, and there's no comfort issue, so her unsure 3-star purchase shouldn't come back."
+      }
+    },
+    {
+      "persona_id": "C40",
+      "label": "Size 8.5, regular width, between sizes, evenings out",
+      "entry": "browse",
+      "brief": "You wear a US 8.5 with regular width feet, and you've worn Vans and Converse. You're between sizes, and your heel often slips in shoes. You're shopping for evenings out, about 7 hours on your feet. You like tan and cream colours and knit textures.",
+      "goal": "Find the pair of boots that suits you best for evenings out.",
+      "past": {
+        "past_product_id": "goer",
+        "past_size_bought": "8.5",
+        "return_bucket": "too_big",
+        "raw_reason": "Too big"
+      },
+      "decision": {
+        "product_id": "aahliyah",
+        "colour": "Cream",
+        "size": 8.5,
+        "bought": true,
+        "rating": 3,
+        "quote": "Cream faux-suede lace-up with a buckle and a low 4 cm heel looked like the best bet for a night out and for keeping my slippy heel in place. The page is thin, though: no fit or sizing advice and no comfort info.",
+        "visual_cues_used": [
+          "cream colour",
+          "brushed suede-look texture",
+          "squared-off toe"
+        ],
+        "site_facts_used": [
+          "Heel height 4 cm",
+          "Closure: Buckle",
+          "Width: Regular",
+          "Faux suede, square toe"
+        ],
+        "info_wished_for": [
+          "whether it runs true to size",
+          "cushioning/comfort for 7 hours standing",
+          "how secure the heel fit is"
+        ]
+      },
+      "steps": [
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/search?q=Boots",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/braxtonn",
+        "snapshot",
+        "click",
+        "snapshot",
+        "navigate: http://localhost:5173/?sim=1&v=tunnel#/product/aahliyah",
+        "snapshot",
+        "click: “Cream” button",
+        "click: “8.5” button",
+        "click: “Add to bag” button"
+      ],
+      "size_check": {
+        "expected": 9.0,
+        "chosen": 8.5,
+        "ok": false,
+        "result": "Too small"
+      },
+      "verdict": {
+        "likely_return": true,
+        "reason": "Too small",
+        "page_gap": "The page never said the shoe runs half a size small, or that between-size shoppers should size up to 9. It also gave no heel-security or fit guidance. The shopper's past return was because a shoe was too big, so they could easily overcorrect.",
+        "evidence": "The shopper, who is between sizes, bought their usual 8.5 and said the page had no sizing advice, but the shoe runs half a size small and needs a 9.0, so the size check fails."
+      }
+    }
+  ]
+}

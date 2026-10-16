@@ -1,0 +1,1112 @@
+[
+  {
+    "id": "rosewood",
+    "name": "Rosewood",
+    "category": "Boots",
+    "type": "Heeled ankle boot",
+    "price": 89.99,
+    "isNew": true,
+    "colours": [
+      {
+        "name": "Rosewood",
+        "hex": "#6e2f35"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "New season. A soft suede ankle boot with an almond toe and a low stacked heel.",
+    "details": {
+      "material": "Suede",
+      "toe": "Almond toe",
+      "heelCm": 4,
+      "width": "Regular",
+      "closure": "Side zip"
+    },
+    "aldoStats": null,
+    "images": [
+      "https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "elliette",
+    "name": "Elliette",
+    "category": "Boots",
+    "type": "Heeled ankle boot",
+    "price": 68.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      },
+      {
+        "name": "Cognac",
+        "hex": "#8a4b22"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A sleek heeled ankle boot with a pointed toe and a slim heel. Smart enough for the office, easy enough for evenings.",
+    "details": {
+      "material": "Faux leather",
+      "toe": "Pointed toe",
+      "heelCm": 9,
+      "width": "Regular",
+      "closure": "Side zip"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 1779,
+      "returns": 725,
+      "returnRate": 0.41,
+      "tooSmallShareOfSizeReturns": 0.7,
+      "colourOrExpectationReturns": null,
+      "uncomfortableReturns": null
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1605733513549-de9b150bd70d",
+      "https://images.unsplash.com/photo-1602250523342-d2212b96a297"
+    ],
+    "labels": {
+      "material": "Faux leather",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "braxtonn",
+    "name": "Braxtonn",
+    "category": "Boots",
+    "type": "Chelsea boot",
+    "price": 57.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Tan",
+        "hex": "#a8794c"
+      },
+      {
+        "name": "Dark brown",
+        "hex": "#4a2e1e"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A chelsea boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Suede",
+      "toe": "Round toe",
+      "heelCm": 5,
+      "width": "Regular",
+      "closure": "Pull-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 270,
+      "returns": 96,
+      "returnRate": 0.36,
+      "tooSmallShareOfSizeReturns": 0.43,
+      "colourOrExpectationReturns": null,
+      "uncomfortableReturns": null
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1608629601270-a0007becead3",
+      "https://images.unsplash.com/photo-1777987601677-3059be0e1388",
+      "https://images.unsplash.com/photo-1777987601423-f350ac29b3e9"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "kamrynn",
+    "name": "Kamrynn",
+    "category": "Boots",
+    "type": "Slouch boot",
+    "price": 68.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A slouch boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Suede",
+      "toe": "Pointed toe",
+      "heelCm": 7,
+      "width": "Regular",
+      "closure": "Lace-up"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 775,
+      "returns": 168,
+      "returnRate": 0.22,
+      "tooSmallShareOfSizeReturns": 0.38,
+      "colourOrExpectationReturns": null,
+      "uncomfortableReturns": null
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1763661300203-aa3e2702f510"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "aahliyah",
+    "name": "Aahliyah",
+    "category": "Boots",
+    "type": "Lace-up heeled boot",
+    "price": 71.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Cream",
+        "hex": "#e8e0d0"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A lace-up heeled boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux suede",
+      "toe": "Square toe",
+      "heelCm": 4,
+      "width": "Regular",
+      "closure": "Buckle"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 4845,
+      "returns": 1946,
+      "returnRate": 0.4,
+      "tooSmallShareOfSizeReturns": 0.82,
+      "colourOrExpectationReturns": 19,
+      "uncomfortableReturns": 135
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1610398752800-146f269dfcc8"
+    ],
+    "labels": {
+      "material": "Faux suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "goer",
+    "name": "Goer",
+    "category": "Boots",
+    "type": "Ankle boot",
+    "price": 63.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A ankle boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Textile",
+      "toe": "Round toe",
+      "heelCm": 6,
+      "width": "Regular",
+      "closure": "Slip-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 7287,
+      "returns": 1504,
+      "returnRate": 0.21,
+      "tooSmallShareOfSizeReturns": 0.74,
+      "colourOrExpectationReturns": 32,
+      "uncomfortableReturns": 96
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1605732440685-d0654d81aa30",
+      "https://images.unsplash.com/photo-1764590544650-ca51cd3eb207"
+    ],
+    "labels": {
+      "material": "Textile",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "verity",
+    "name": "Verity",
+    "category": "Boots",
+    "type": "Ankle boot",
+    "price": 97.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A ankle boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux leather",
+      "toe": "Round toe",
+      "heelCm": 3,
+      "width": "Regular",
+      "closure": "Side zip"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 5979,
+      "returns": 1503,
+      "returnRate": 0.25,
+      "tooSmallShareOfSizeReturns": 0.58,
+      "colourOrExpectationReturns": 43,
+      "uncomfortableReturns": 146
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1571489555750-c932b569ef5d"
+    ],
+    "labels": {
+      "material": "Faux leather",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "wicoenia",
+    "name": "Wicoenia",
+    "category": "Boots",
+    "type": "Chelsea boot",
+    "price": 71.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      },
+      {
+        "name": "Dark brown",
+        "hex": "#4a2e1e"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A chelsea boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Leather",
+      "toe": "Pointed toe",
+      "heelCm": 5,
+      "width": "Regular",
+      "closure": "Pull-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 4241,
+      "returns": 1089,
+      "returnRate": 0.26,
+      "tooSmallShareOfSizeReturns": 0.79,
+      "colourOrExpectationReturns": 26,
+      "uncomfortableReturns": 78
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1534233812932-59b8fa1b780c",
+      "https://images.unsplash.com/photo-1788478963160-1c38139e2932"
+    ],
+    "labels": {
+      "material": "Leather",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "nevada",
+    "name": "Nevada",
+    "category": "Boots",
+    "type": "Knee-high boot",
+    "price": 129.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Taupe",
+        "hex": "#9a8b7a"
+      },
+      {
+        "name": "Cognac",
+        "hex": "#8a4b22"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A knee-high boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Suede",
+      "toe": "Square toe",
+      "heelCm": 7,
+      "width": "Regular",
+      "closure": "Lace-up"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 3776,
+      "returns": 1047,
+      "returnRate": 0.28,
+      "tooSmallShareOfSizeReturns": 0.77,
+      "colourOrExpectationReturns": 30,
+      "uncomfortableReturns": 74
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1575425939273-46ecee6d6931",
+      "https://images.unsplash.com/photo-1732708862072-d2f9e578e531"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "belide",
+    "name": "Belide",
+    "category": "Boots",
+    "type": "Lace-up boot",
+    "price": 108.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Cognac",
+        "hex": "#8a4b22"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A lace-up boot with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Leather",
+      "toe": "Almond toe",
+      "heelCm": 4,
+      "width": "Regular",
+      "closure": "Buckle"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 3286,
+      "returns": 1056,
+      "returnRate": 0.32,
+      "tooSmallShareOfSizeReturns": 0.23,
+      "colourOrExpectationReturns": 31,
+      "uncomfortableReturns": 61
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1761052720710-32349209f6b4",
+      "https://images.unsplash.com/photo-1542838687-936f417d2f37"
+    ],
+    "labels": {
+      "material": "Leather",
+      "gender": "Women's",
+      "height": "High-top",
+      "season": "Winter"
+    }
+  },
+  {
+    "id": "veadith",
+    "name": "Veadith",
+    "category": "Shoes",
+    "type": "Bow mule",
+    "price": 51.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A bow mule with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Textile",
+      "toe": "Almond toe",
+      "heelCm": 2,
+      "width": "Regular",
+      "closure": "Slip-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 9487,
+      "returns": 3103,
+      "returnRate": 0.33,
+      "tooSmallShareOfSizeReturns": 0.67,
+      "colourOrExpectationReturns": 40,
+      "uncomfortableReturns": 253
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1564051806-be616e3bdcec"
+    ],
+    "labels": {
+      "material": "Textile",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "clementinne",
+    "name": "Clementinne",
+    "category": "Shoes",
+    "type": "Loafer",
+    "price": 59.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Cognac",
+        "hex": "#8a4b22"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A loafer with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Leather",
+      "toe": "Pointed toe",
+      "heelCm": 1,
+      "width": "Regular",
+      "closure": "Side zip"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 5934,
+      "returns": 2027,
+      "returnRate": 0.34,
+      "tooSmallShareOfSizeReturns": 0.18,
+      "colourOrExpectationReturns": 39,
+      "uncomfortableReturns": 111
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1615979474401-8a6a344de5bd",
+      "https://images.unsplash.com/photo-1616406432452-07bc5938759d"
+    ],
+    "labels": {
+      "material": "Leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "alanie",
+    "name": "Alanie",
+    "category": "Shoes",
+    "type": "Pointed slingback heel",
+    "price": 37.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Nude",
+        "hex": "#d9b59a"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A pointed slingback heel with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Leather",
+      "toe": "Pointed toe",
+      "heelCm": 6,
+      "width": "Regular",
+      "closure": "Pull-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 2593,
+      "returns": 1078,
+      "returnRate": 0.42,
+      "tooSmallShareOfSizeReturns": 0.61,
+      "colourOrExpectationReturns": 16,
+      "uncomfortableReturns": 94
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1621996659490-3275b4d0d951"
+    ],
+    "labels": {
+      "material": "Leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "oneameth",
+    "name": "Oneameth",
+    "category": "Shoes",
+    "type": "Pump",
+    "price": 82.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Nude",
+        "hex": "#d9b59a"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A pump with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Suede",
+      "toe": "Pointed toe",
+      "heelCm": 8,
+      "width": "Regular",
+      "closure": "Lace-up"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 1819,
+      "returns": 1045,
+      "returnRate": 0.57,
+      "tooSmallShareOfSizeReturns": 0.42,
+      "colourOrExpectationReturns": 21,
+      "uncomfortableReturns": 76
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95",
+      "https://images.unsplash.com/photo-1596703263926-eb0762ee17e4"
+    ],
+    "labels": {
+      "material": "Suede",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "lededanten",
+    "name": "Lededanten",
+    "category": "Shoes",
+    "type": "Horsebit loafer",
+    "price": 82.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Tan",
+        "hex": "#a8794c"
+      },
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0
+    ],
+    "description": "A horsebit loafer with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux suede",
+      "toe": "Almond toe",
+      "heelCm": 2,
+      "width": "Regular",
+      "closure": "Buckle"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 2215,
+      "returns": 984,
+      "returnRate": 0.44,
+      "tooSmallShareOfSizeReturns": 0.3,
+      "colourOrExpectationReturns": 32,
+      "uncomfortableReturns": 52
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1676121270762-47c8d3a7b9d5",
+      "https://images.unsplash.com/photo-1760616172899-0681b97a2de3"
+    ],
+    "labels": {
+      "material": "Faux suede",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "All season"
+    }
+  },
+  {
+    "id": "dorenna",
+    "name": "Dorenna",
+    "category": "Sandals",
+    "type": "Platform sandal",
+    "price": 67.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Burgundy",
+        "hex": "#7a2a35"
+      }
+    ],
+    "sizes": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "description": "A platform sandal with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Textile",
+      "toe": "Round open toe",
+      "heelCm": 5,
+      "width": "Regular",
+      "closure": "Slip-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 9116,
+      "returns": 2071,
+      "returnRate": 0.23,
+      "tooSmallShareOfSizeReturns": 0.32,
+      "colourOrExpectationReturns": 20,
+      "uncomfortableReturns": 179
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1562273138-f46be4ebdf33"
+    ],
+    "labels": {
+      "material": "Textile",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "Summer"
+    }
+  },
+  {
+    "id": "elenaa",
+    "name": "Elenaa",
+    "category": "Sandals",
+    "type": "Heeled mule sandal",
+    "price": 54.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Sky blue",
+        "hex": "#a9c6e2"
+      },
+      {
+        "name": "White",
+        "hex": "#f2efe9"
+      }
+    ],
+    "sizes": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "description": "A heeled mule sandal with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux leather",
+      "toe": "Open toe",
+      "heelCm": 6,
+      "width": "Regular",
+      "closure": "Side zip"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 8449,
+      "returns": 1458,
+      "returnRate": 0.17,
+      "tooSmallShareOfSizeReturns": 0.66,
+      "colourOrExpectationReturns": 19,
+      "uncomfortableReturns": 72
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1585488434451-7ee645d0574b",
+      "https://images.unsplash.com/photo-1574791418059-2e8d961ab4fb"
+    ],
+    "labels": {
+      "material": "Faux leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "Summer"
+    }
+  },
+  {
+    "id": "aneka",
+    "name": "Aneka",
+    "category": "Sandals",
+    "type": "Flat slide",
+    "price": 67.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "White",
+        "hex": "#f2efe9"
+      }
+    ],
+    "sizes": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "description": "A flat slide with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Leather",
+      "toe": "Square open toe",
+      "heelCm": 1,
+      "width": "Regular",
+      "closure": "Pull-on"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 5024,
+      "returns": 1195,
+      "returnRate": 0.24,
+      "tooSmallShareOfSizeReturns": 0.24,
+      "colourOrExpectationReturns": 27,
+      "uncomfortableReturns": 57
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1627388484741-74dcc56ec343"
+    ],
+    "labels": {
+      "material": "Leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "Summer"
+    }
+  },
+  {
+    "id": "lagoon",
+    "name": "Lagoon",
+    "category": "Sandals",
+    "type": "Strappy heel sandal",
+    "price": 54.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Gold",
+        "hex": "#c8a24a"
+      },
+      {
+        "name": "Nude",
+        "hex": "#d9b59a"
+      }
+    ],
+    "sizes": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "description": "A strappy heel sandal with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux leather",
+      "toe": "Round open toe",
+      "heelCm": 9,
+      "width": "Regular",
+      "closure": "Lace-up"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 4868,
+      "returns": 1058,
+      "returnRate": 0.22,
+      "tooSmallShareOfSizeReturns": 0.83,
+      "colourOrExpectationReturns": 15,
+      "uncomfortableReturns": 64
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1553545985-1e0d8781d5db",
+      "https://images.unsplash.com/photo-1534653299134-96a171b61581"
+    ],
+    "labels": {
+      "material": "Faux leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "Summer"
+    }
+  },
+  {
+    "id": "adrauder",
+    "name": "Adrauder",
+    "category": "Sandals",
+    "type": "Slide",
+    "price": 79.99,
+    "isNew": false,
+    "colours": [
+      {
+        "name": "Black",
+        "hex": "#1c1c1c"
+      }
+    ],
+    "sizes": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "description": "A slide with a clean, everyday silhouette. Pairs with denim or tailoring.",
+    "details": {
+      "material": "Faux leather",
+      "toe": "Open toe",
+      "heelCm": 1,
+      "width": "Regular",
+      "closure": "Buckle"
+    },
+    "aldoStats": {
+      "source": "ALDO OMS returns + orders sample, Feb 2024 - Jan 2026",
+      "unitsSoldSample": 4244,
+      "returns": 946,
+      "returnRate": 0.22,
+      "tooSmallShareOfSizeReturns": 0.7,
+      "colourOrExpectationReturns": 9,
+      "uncomfortableReturns": 173
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1585120824848-8a5cd41493d2"
+    ],
+    "labels": {
+      "material": "Faux leather",
+      "gender": "Women's",
+      "height": "Low-top",
+      "season": "Summer"
+    }
+  }
+]

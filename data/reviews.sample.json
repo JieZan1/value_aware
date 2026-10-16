@@ -1,0 +1,60 @@
+{
+  "rosewood": [
+    {
+      "persona": "Size 8, wide feet",
+      "kind": "shopper",
+      "size": 8,
+      "rating": 3,
+      "text": "Took my usual 8. Nothing on the page says the toe is narrow, so I'd worry it pinches.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Gift buyer",
+      "kind": "shopper",
+      "size": 7,
+      "rating": 3,
+      "text": "I expected a rosy pink. The photo looks brighter than the name suggests.",
+      "likelyReturn": true,
+      "reason": "Colour"
+    },
+    {
+      "persona": "Office wear, 9 hours a day",
+      "kind": "shopper",
+      "size": 7.5,
+      "rating": 4,
+      "text": "Can't tell the heel height from the photos. Unsure about comfort.",
+      "likelyReturn": false,
+      "reason": null
+    },
+    {
+      "persona": "AI assistant for a user who wears Nike 8",
+      "kind": "ai",
+      "size": 8,
+      "rating": null,
+      "text": "The product feed lists sizes only. Ordering size 8.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    }
+  ],
+  "elliette": [
+    {
+      "persona": "Size 7, regular width",
+      "kind": "shopper",
+      "size": 7,
+      "rating": 3,
+      "text": "Love the look, but nothing tells me it runs small. I'd order my usual 7.",
+      "likelyReturn": true,
+      "reason": "Too small"
+    },
+    {
+      "persona": "Size 8.5, narrow feet",
+      "kind": "shopper",
+      "size": 8.5,
+      "rating": 4,
+      "text": "Heel looks walkable. I'd keep it if the fit is true to size.",
+      "likelyReturn": false,
+      "reason": null
+    }
+  ]
+}

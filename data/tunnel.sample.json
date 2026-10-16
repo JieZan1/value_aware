@@ -1,0 +1,46 @@
+{
+  "rosewood": {
+    "before": {
+      "rate": 0.22,
+      "range": 0.06,
+      "aiRate": 0.35,
+      "aiRange": 0.09
+    },
+    "after": {
+      "rate": 0.14,
+      "range": 0.05,
+      "aiRate": 0.12,
+      "aiRange": 0.06
+    },
+    "fitNote": "Narrow toe. If your feet are wide, size up half.",
+    "colourNote": "Rosewood: a deep red-brown with a slight purple cast. Darker than it looks on most screens.",
+    "photoStatus": "Natural-light photos requested: front, side, on foot, colour close-up with white card.",
+    "feedFacts": {
+      "runs_small": "half",
+      "width": "narrow",
+      "heel_cm": 4,
+      "colour_text": "deep red-brown, slight purple cast"
+    },
+    "approved": true,
+    "illustrative": true
+  },
+  "elliette": {
+    "before": {
+      "rate": 0.41,
+      "range": 0.05
+    },
+    "after": {
+      "rate": 0.31,
+      "range": 0.05
+    },
+    "fitNote": "Runs small: 70% of shoppers who returned it for size found it too small. We suggest half a size up.",
+    "colourNote": null,
+    "photoStatus": null,
+    "feedFacts": {
+      "runs_small": "half",
+      "width": "regular"
+    },
+    "approved": true,
+    "illustrative": true
+  }
+}

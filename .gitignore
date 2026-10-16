@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.DS_Store
+node_modules/
+storefront/dist/
+.playwright-mcp/
+
+# Raw ALDO OMS export: 144 MB (over GitHub's 100 MB file limit) and it holds real customer IDs.
+OMS Data_Feb24-Jan26_new.csv
+
+# Run outputs: keep only the demo run (Rosewood 50% -> 0%). Add others with `git add -f`.
+runs/*
+!runs/20261015-213508/

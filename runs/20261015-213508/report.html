@@ -1,0 +1,438 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Wind tunnel · Rosewood</title><style>
+.viz-root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface-1: #fcfcfb; --text-primary: #0b0b0b; --text-secondary: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10); --success-text: #006300;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100; --series-1-soft: #86b6ef;
+  --good: #0ca30c; --critical: #d03b3b; --warning: #fab219;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) .viz-root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface-1: #1a1a19; --text-primary: #f0efec; --text-secondary: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10); --success-text: #0ca30c;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500; --series-1-soft: #184f95;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.viz-root { background: var(--page); color: var(--text-primary); min-height: 100vh;
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 32px 24px 64px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+h1 { font-size: 26px; margin: 0; } h2 { font-size: 18px; margin: 0 0 4px; } h3 { font-size: 14px; margin: 0 0 6px; }
+.sub, .muted { color: var(--text-secondary); } .tiny { font-size: 12px; color: var(--muted); }
+section { margin-top: 36px; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.agent-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 2px 9px; margin-bottom: 8px; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+.tile .label { color: var(--text-secondary); font-size: 13px; }
+.tile .value { font-size: 34px; font-weight: 600; line-height: 1.15; margin-top: 4px; }
+.tile .value small { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
+.tile .delta { font-size: 13px; margin-top: 4px; color: var(--text-secondary); }
+.tile .delta.good { color: var(--success-text); font-weight: 600; }
+/* range chart */
+.range { margin-top: 12px; }
+.range-row { display: grid; grid-template-columns: 120px 1fr 110px; align-items: center; gap: 12px; height: 40px; }
+.track { position: relative; height: 28px; }
+.track .grid { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--grid); }
+.track .base { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--axis); }
+.track .band { position: absolute; top: 7px; height: 14px; border-radius: 4px; background: var(--series-1); opacity: .18; }
+.track .dot { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
+  background: var(--series-1); box-shadow: 0 0 0 2px var(--surface-1); }
+.track .hit { position: absolute; top: 0; bottom: 0; cursor: default; }
+.axis-row { display: grid; grid-template-columns: 120px 1fr 110px; gap: 12px; }
+.axis { position: relative; height: 16px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.axis span { position: absolute; transform: translateX(-50%); }
+.range-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+/* pipeline */
+.pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 12px; }
+.step { position: relative; background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+.step:not(:last-child)::after { content: "→"; position: absolute; right: -10px; top: 50%; transform: translate(50%, -50%);
+  color: var(--muted); font-size: 14px; }
+.step .n { font-size: 11px; color: var(--muted); font-weight: 600; }
+.step .name { font-weight: 600; margin: 2px 0 4px; }
+.step .out { font-size: 12px; color: var(--text-secondary); }
+.step .llm { font-size: 10.5px; color: var(--muted); margin-top: 6px; }
+/* outcome matrix */
+table { border-collapse: collapse; width: 100%; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 8px 10px; border-bottom: 1px solid var(--axis); }
+td { padding: 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+.outcome { display: flex; gap: 8px; align-items: flex-start; border-radius: 8px; padding: 8px 10px; }
+.outcome .icon { flex: none; width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.outcome.good { background: color-mix(in srgb, var(--good) 10%, transparent); } .outcome.good .icon { background: var(--good); }
+.outcome.bad { background: color-mix(in srgb, var(--critical) 10%, transparent); } .outcome.bad .icon { background: var(--critical); }
+.outcome.none { background: color-mix(in srgb, var(--muted) 12%, transparent); } .outcome.none .icon { background: var(--muted); }
+.outcome .lbl { display: block; } .outcome .what { font-size: 12px; color: var(--text-secondary); }
+.chip { display: inline-block; font-size: 11.5px; border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px;
+  margin: 2px 4px 2px 0; color: var(--text-secondary); background: var(--surface-1); }
+.chip.hidden { border-style: solid; background: color-mix(in srgb, var(--warning) 14%, transparent); color: var(--text-primary); }
+.other { font-size: 11px; color: var(--muted); margin-top: 2px; }
+/* data refinement */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+dl { display: grid; grid-template-columns: 130px 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
+dt { color: var(--text-secondary); } dd { margin: 0; }
+.stack { display: flex; gap: 2px; height: 24px; margin-top: 10px; }
+.stack div { border-radius: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+.stack div:first-child { border-radius: 4px 0 0 4px; } .stack div:last-child { border-radius: 0 4px 4px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; font-size: 12.5px; color: var(--text-secondary); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+details.table-view { margin-top: 8px; font-size: 12.5px; } details.table-view summary { cursor: pointer; color: var(--text-secondary); }
+details.table-view td, details.table-view th { padding: 4px 8px; font-variant-numeric: tabular-nums; }
+/* persona cards */
+.persona { margin-top: 14px; }
+.persona-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+summary.persona-head { cursor: pointer; list-style: none; align-items: center; }
+summary.persona-head::-webkit-details-marker { display: none; }
+summary.persona-head h2::before { content: "▸ "; color: var(--muted); }
+details[open] > summary.persona-head h2::before { content: "▾ "; }
+.mini { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; border-radius: 999px; padding: 3px 10px 3px 4px; margin-left: 6px; }
+.mini .icon { width: 16px; height: 16px; border-radius: 50%; color: #fff; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.mini.good { background: color-mix(in srgb, var(--good) 10%, transparent); } .mini.good .icon { background: var(--good); }
+.mini.bad { background: color-mix(in srgb, var(--critical) 10%, transparent); } .mini.bad .icon { background: var(--critical); }
+.mini.none { background: color-mix(in srgb, var(--muted) 12%, transparent); } .mini.none .icon { background: var(--muted); }
+details.more summary { cursor: pointer; font-size: 12px; color: var(--text-secondary); margin: -4px 0 8px; }
+.brief { margin: 10px 0 4px; padding: 10px 12px; border-left: 3px solid var(--series-1); background: var(--page); border-radius: 0 6px 6px 0; }
+.runs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.run { border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.run h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-secondary); }
+.timeline { list-style: none; margin: 6px 0 10px; padding: 0 0 0 14px; border-left: 1px solid var(--axis); font-size: 12.5px; }
+.timeline li { position: relative; padding: 2px 0 2px 6px; color: var(--text-secondary); }
+.timeline li::before { content: ""; position: absolute; left: -19px; top: 9px; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--series-1); box-shadow: 0 0 0 2px var(--surface-1); }
+.timeline li b { color: var(--text-primary); font-weight: 600; }
+.quote { font-style: italic; margin: 8px 0; }
+.kv { font-size: 12.5px; margin-top: 6px; } .kv span { color: var(--text-secondary); }
+.judge { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--grid); font-size: 13px; }
+/* fixer */
+.weak { display: grid; grid-template-columns: 1fr 200px; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--grid); }
+.weak:last-child { border-bottom: 0; }
+.bar-track { position: relative; height: 10px; margin-top: 6px; }
+.bar-track .bar { position: absolute; left: 0; top: 0; bottom: 0; background: var(--series-1); border-radius: 0 4px 4px 0; }
+.bar-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.fixes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.note { border-radius: 8px; padding: 10px 12px; background: var(--page); border: 1px solid var(--border); }
+.note b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-secondary); margin-bottom: 4px; }
+ol.shots { margin: 4px 0 0; padding-left: 18px; }
+.method { font-size: 13px; color: var(--text-secondary); }
+.method code { font-size: 12.5px; }
+#tip { position: fixed; pointer-events: none; background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 9px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12); display: none; max-width: 280px; }
+#tip strong { display: block; font-size: 13px; }
+@media (max-width: 900px) { .kpis, .pipeline { grid-template-columns: repeat(2, 1fr); } .two, .runs, .fixes { grid-template-columns: 1fr; }
+  .step::after { display: none; } }
+</style></head>
+<body><div class='viz-root'><div class='wrap'>
+<header><div class='tiny'>Returns wind tunnel · run 20261015-213508</div>
+  <h1>Rosewood · Heeled ankle boot</h1>
+  <div class='sub'>Virtual shoppers built from past ALDO returns shopped this page. Would they repeat their past mistake, and what should the page say?</div></header>
+
+<div class='kpis'>
+  <div class='card tile'><div class='label'>Predicted return rate, original page</div>
+    <div class='value'>50% <small>± 25%</small></div>
+    <div class='delta'>2 of 4 Rosewood buyers</div></div>
+  <div class='card tile'><div class='label'>After wind-tunnel fixes</div>
+    <div class='value'>0% <small>± 5%</small></div>
+    <div class='delta good'>↓ 50 pts vs original page</div></div>
+  <div class='card tile'><div class='label'>Shoppers who chose Rosewood</div>
+    <div class='value'>4 <small>of 6</small></div>
+    <div class='delta'>others bought a different style</div></div>
+  <div class='card tile'><div class='label'>Page weaknesses found</div>
+    <div class='value'>2</div>
+    <div class='delta'>3 page fixes drafted</div></div>
+</div>
+<section><h2>Predicted return rate, with range</h2>
+  <div class='tiny'>Share of Rosewood buyers whose purchase would likely come back. The band is the range (±1 standard error).</div>
+  <div class='card range'><div class='range-row'><div>Original page</div><div class='track'><div class='grid' style='left:0%'></div><div class='grid' style='left:25%'></div><div class='grid' style='left:50%'></div><div class='grid' style='left:75%'></div><div class='grid' style='left:100%'></div><div class='base'></div><div class='band' style='left:25.0%;width:50.0%'></div><div class='dot' style='left:50.0%'></div><div class='hit' style='left:23.0%;width:54.0%' data-tip-value='50% ± 25%' data-tip-label='Original page: 2 of 4 buyers likely return · range 25%–75%'></div></div><div class='range-val'>50% ± 25%</div></div><div class='range-row'><div>After fixes</div><div class='track'><div class='grid' style='left:0%'></div><div class='grid' style='left:25%'></div><div class='grid' style='left:50%'></div><div class='grid' style='left:75%'></div><div class='grid' style='left:100%'></div><div class='base'></div><div class='band' style='left:0.0%;width:5.0%'></div><div class='dot' style='left:0.0%'></div><div class='hit' style='left:-2.0%;width:9.0%' data-tip-value='0% ± 5%' data-tip-label='After fixes: 0 of 4 buyers likely return · range 0%–5%'></div></div><div class='range-val'>0% ± 5%</div></div><div class='axis-row'><div></div><div class='axis'><span style='left:0%'>0%</span><span style='left:25%'>25%</span><span style='left:50%'>50%</span><span style='left:75%'>75%</span><span style='left:100%'>100%</span></div><div></div></div></div></section>
+<section><h2>The agent pipeline</h2><div class='pipeline'><div class='step'><div class='n'>Agent 1</div><div class='name'>Data refinement</div><div class='out'>OMS returns → photo cues, hidden truth, 50 customer profiles</div><div class='llm'>Python, no LLM</div></div><div class='step'><div class='n'>Agent 2</div><div class='name'>Persona builder</div><div class='out'>6 shoppers built from the 50 profiles</div><div class='llm'>Claude on Bedrock</div></div><div class='step'><div class='n'>Agent 3</div><div class='name'>Shoppers</div><div class='out'>12 browsing sessions · 145 browser actions</div><div class='llm'>Strands + Playwright MCP</div></div><div class='step'><div class='n'>Agent 4</div><div class='name'>Judge</div><div class='out'>2 of 4 likely returns on the original page</div><div class='llm'>rules + Claude</div></div><div class='step'><div class='n'>Agent 5</div><div class='name'>Fixer</div><div class='out'>2 weaknesses → fit note, colour note, shot list, feed facts</div><div class='llm'>Claude on Bedrock</div></div><div class='step'><div class='n'>Agent 6</div><div class='name'>Re-test</div><div class='out'>same shoppers on the fixed page: 0%</div><div class='llm'>Strands + Playwright MCP</div></div></div></section>
+<section><h2>Every shopper, before and after the fixes</h2>
+  <div class='tiny'>Yellow chips are hidden from the shopper: they're the real past return this persona carries.</div>
+  <div class='card' style='margin-top:10px'><table><thead><tr><th style='width:34%'>Shopper</th><th>Original page</th><th>After fixes</th></tr></thead><tbody><tr><td><b>Size 6, wide feet, weekend errands</b><br><span class='chip'>Arrived from an ad</span><span class='chip hidden'>Returned Aahliyah · Too small</span></td><td><div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too small</b><div class='what'>Rosewood · colour Rosewood · size 6</div></div></div></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 6.5</div></div></div></td></tr><tr><td><b>Size 9.5, narrow feet, between sizes, everyday</b><br><span class='chip'>Arrived from an ad</span><span class='chip hidden'>Returned Nevada · Too big</span></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 9.5</div></div></div></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 9.5</div></div></div></td></tr><tr><td><b>Size 9, regular width, nurse on 12-hour shifts</b><br><span class='chip'>Browsed boots</span><span class='chip hidden'>Returned Aahliyah · Uncomfortable</span></td><td><div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too big</b><div class='what'>Belide · colour Cognac · size 9</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Braxtonn · colour Tan · size 9</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div></td></tr><tr><td><b>Size 7, narrow feet, particular about colour</b><br><span class='chip'>Arrived from an ad</span><span class='chip hidden'>Returned Elliette · Not what I expected</span></td><td><div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Colour</b><div class='what'>Rosewood · colour Rosewood · size 7</div></div></div></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 7</div></div></div></td></tr><tr><td><b>Size 7.5, regular width, wedding guest</b><br><span class='chip'>Arrived from an ad</span><span class='chip hidden'>Returned Wicoenia · Too small</span></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 7.5</div></div></div></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Rosewood · colour Rosewood · size 7.5</div></div></div></td></tr><tr><td><b>Size 8.5, regular width, between sizes, evenings out</b><br><span class='chip'>Browsed boots</span><span class='chip hidden'>Returned Goer · Too big</span></td><td><div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b><div class='what'>Braxtonn · colour Tan · size 8.5</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div></td><td><div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too small</b><div class='what'>Aahliyah · colour Cream · size 8.5</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div></td></tr></tbody></table></div></section>
+<section><h2>Agent 1 · Data refinement</h2>
+<div class='two'>
+  <div class='card'><div class='agent-tag'>What shoppers see</div><h3>Rosewood product page + photo cues</h3>
+    <dl><dt>Photo shows</dt><dd>soft matte napped suede · softly tapered almond toe · <b>bright rosy pink</b> · heeled ankle boot</dd>
+      <dt>Description</dt><dd>New season. A soft suede ankle boot with an almond toe and a low stacked heel.</dd>
+      <dt>Details</dt><dd>Suede · Almond toe · 4 cm heel · width “Regular”</dd>
+      <dt>Colours</dt><dd>Rosewood, Black</dd>
+      <dt>Fit guidance</dt><dd class='muted'>none on the original page</dd></dl></div>
+  <div class='card'><div class='agent-tag'>Hidden truth · judge only</div><h3>What the shoe is really like</h3>
+    <dl><dt>Fit</dt><dd>true to size</dd><dt>Width</dt><dd><b>narrow toe box</b></dd>
+      <dt>True colour</dt><dd><b>deep red-brown with a slight purple cast, darker than on most screens</b> (photo misleads)</dd>
+      <dt>Comfort</dt><dd>no known comfort issue</dd><dt>Real ALDO data</dt><dd>new style, no return history yet</dd></dl></div>
+</div>
+<div class='card' style='margin-top:12px'><h3>Customer pool: 50 made-up profiles, each tied to a real OMS return line</h3>
+  <div class='tiny'>Split by the reason they returned their past purchase, in proportion to the real return mix</div>
+  <div class='stack'><div style='flex:21;background:var(--series-1);color:#fff' data-tip-value='21 customers' data-tip-label='Too small · 42% of the pool'>21</div><div style='flex:17;background:var(--series-2);color:#0b0b0b' data-tip-value='17 customers' data-tip-label='Too big · 34% of the pool'>17</div><div style='flex:9;background:var(--series-3);color:#0b0b0b' data-tip-value='9 customers' data-tip-label='Uncomfortable · 18% of the pool'>9</div><div style='flex:3;background:var(--series-4);color:#0b0b0b' data-tip-value='3 customers' data-tip-label='Colour / look · 6% of the pool'>3</div></div><div class='legend'><span><i style='background:var(--series-1)'></i>Too small · 21</span><span><i style='background:var(--series-2)'></i>Too big · 17</span><span><i style='background:var(--series-3)'></i>Uncomfortable · 9</span><span><i style='background:var(--series-4)'></i>Colour / look · 3</span></div>
+  <details class='table-view'><summary>Table view</summary><table><tr><th>Return reason</th><th>Customers</th><th>Share</th></tr><tr><td>Too small</td><td>21</td><td>42%</td></tr><tr><td>Too big</td><td>17</td><td>34%</td></tr><tr><td>Uncomfortable</td><td>9</td><td>18%</td></tr><tr><td>Colour / look</td><td>3</td><td>6%</td></tr></table></details>
+</div></section>
+<section><h2>Agents 2–4 · Persona builder → shopper → judge</h2><div class='tiny'>One card per shopper. Click a card to open it.</div>
+<details class='card persona' open>
+  <summary class='persona-head'><h2>C01 · Size 6, wide feet, weekend errands</h2><span><span class='mini bad'><span class='icon' aria-hidden='true'>✕</span>Original: Likely return · Too small</span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>After: Keeps it</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:163620178293606 · ALDO_US</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 6.0</span><span class='chip'>wide feet</span><span class='chip'>Sam Edelman, Vans</span><span class='chip'>weekend errands</span><span class='chip'>3 h on feet</span><span class='chip'>Usually orders my normal size without checking a size guide.</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Aahliyah in 6.0</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Too small</span></div>
+  <div class='brief'>You wear a US 6 (wide feet) and have worn Sam Edelman and Vans. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You&#x27;ll be wearing them for weekend errands, about 3 hours on your feet. You usually order your normal size without checking a size guide.<div class='tiny' style='margin-top:4px'>Goal: Find a pair of boots for weekend errands, probably the Rosewood. ·
+    arrives from an ad</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “6” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 6 · rated 3/5</div>
+  <p class='quote'>“The rosy pink suede is exactly what caught my eye in the ad, so I got my usual 6 in Rosewood. The page says the width is &quot;Regular&quot; and doesn&#x27;t say how the boots fit, so I&#x27;m a bit unsure about my wide feet.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>bright rosy pink matte napped suede</span><span class='chip'>almond toe</span><span class='chip'>heeled ankle boot shape</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Whether the boots run true to size</span><span class='chip'>Wide width option or how roomy the toe box is</span><span class='chip'>Comfort for 3 hours of standing</span><span class='chip'>Lining and sole details</span><span class='chip'>Size guide</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too small</b>
+      <div class='what'>Expected size <b>6.5</b> · chose <b>6</b> → too small</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page didn&#x27;t say the toe box is narrow, so wide-footed shoppers should size up (about half a size). It had no size or fit guidance and no wide-foot advice. It also showed Rosewood as bright rosy pink when the real colour is a deeper red-brown with a purple cast. That colour mismatch doesn&#x27;t drive a return here, but it should be fixed.</div>
+    <div class='kv'><span>Evidence:</span> Wide-footed shopper bought her usual 6.0 without a size guide, and the computed size check expects 6.5 (result &quot;Too small&quot;). The boot also has a narrow toe box and the page only said &quot;Regular&quot; width, which matches her past too-small return.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “6.5” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 6.5 · rated 3/5</div>
+  <p class='quote'>“The ad made these look bright rosy pink, but the page says Rosewood is a deep red-brown and not bright pink. I bought them anyway because I like the shape. I went up half a size because the page said wide feet should.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>soft matte napped suede look</span><span class='chip'>almond toe shape</span><span class='chip'>heeled ankle boot silhouette</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>A photo that shows the true colour, since it didn&#x27;t match the ad</span><span class='chip'>A wide-width option</span><span class='chip'>Comfort details such as cushioning or insole for 3 hours on my feet</span><span class='chip'>Whether the boot comes in a pink colour</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>6.5</b> · chose <b>6.5</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page did its job on size and colour. The remaining gaps are minor: it gives no cushioning or insole details for 3 hours of wear, and it offers no wide-width option. The ad&#x27;s bright-pink imagery also doesn&#x27;t match the product, which is an ad-to-page inconsistency rather than a page failure.</div>
+    <div class='kv'><span>Evidence:</span> The shopper followed the page&#x27;s wide-foot advice and went up to 6.5, which matches the expected size. They also read the colour note and knowingly bought the deep red-brown despite the ad. The size and colour checks both pass and the boot has no comfort issue, so a return is unlikely.</div>
+  </div>
+</div></div>
+</details>
+<details class='card persona'>
+  <summary class='persona-head'><h2>C37 · Size 9.5, narrow feet, between sizes, everyday</h2><span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>Original: Keeps it</span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>After: Keeps it</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:196830426410724 · ALDO_CA</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 9.5</span><span class='chip'>narrow feet</span><span class='chip'>Dr. Martens, Naturalizer</span><span class='chip'>everyday wear</span><span class='chip'>5 h on feet</span><span class='chip'>Between sizes; my heel often slips in shoes.</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Nevada in 10.0</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Too big</span></div>
+  <div class='brief'>You wear a US 9.5 with narrow feet, and you&#x27;ve worn Dr. Martens and Naturalizer. You&#x27;re between sizes, and your heel often slips in shoes. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You&#x27;d wear them for everyday wear, about 5 hours on your feet.<div class='tiny' style='margin-top:4px'>Goal: Find a pair of boots for everyday wear, probably the Rosewood. ·
+    arrives from an ad</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “9.5” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 9.5 · rated 3/5</div>
+  <p class='quote'>“The pink suede boot looks just like the ad and I love the colour, so I got it in my usual 9.5. The page doesn&#x27;t say how it fits, and I have narrow feet and heel slip, so I&#x27;m guessing a bit.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>bright rosy pink suede</span><span class='chip'>soft matte napped finish</span><span class='chip'>tapered almond toe</span><span class='chip'>low stacked heel</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Whether it runs true to size, small or large</span><span class='chip'>Whether a narrow width is available</span><span class='chip'>Heel fit or slippage info</span><span class='chip'>Lining and cushioning details for 5 hours of wear</span><span class='chip'>Shaft height</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>9.5</b> · chose <b>9.5</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page didn&#x27;t say the boot runs true to size. It didn&#x27;t say the toe box is narrow, which suits this narrow-footed shopper. It gave no heel-fit or lining details. It also showed the Rosewood colourway as bright rosy pink when it is really a darker red-brown with a purple cast. That mismatch could cause a colour return from a more colour-sensitive shopper.</div>
+    <div class='kv'><span>Evidence:</span> The shopper bought their usual 9.5, which is true to size, and the boot has no comfort issue. They said they loved the pink colour, but the real colour is a deep red-brown. The colour check says they aren&#x27;t colour-sensitive, so it doesn&#x27;t count as a return.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 22 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Open</b> #/</li><li><b>Read the page</b></li><li><b>Click</b> <span class=tiny>×3</span></li><li><b>Open</b> #/product/rosewood</li></ol><details class='more'><summary>Show 10 more steps</summary><ol class='timeline'><li><b>Read the page</b></li><li><b>Click</b> <span class=tiny>×3</span></li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “9.5” button</li><li><b>Click</b> “Add to bag” button</li><li><b>Read the page</b> <span class=tiny>×3</span></li><li><b>Click</b> “9.5” button</li><li><b>Click</b> “Add to bag” button</li><li><b>Read the page</b></li></ol></details>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 9.5 · rated 3/5</div>
+  <p class='quote'>“The ad made these look bright rosy pink, but the page says Rosewood is a deep red-brown and not bright pink. I still bought them because the suede and almond toe are what I liked and the fit note suits narrow feet, but I&#x27;m a bit unsure about the colour.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>Soft matte napped suede look</span><span class='chip'>Tapered almond toe</span><span class='chip'>Low stacked heel on an ankle boot</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>A bright pink colour option</span><span class='chip'>Advice on heel slip or how snug the heel cup is</span><span class='chip'>How the sizing works if you&#x27;re between sizes</span><span class='chip'>Cushioning or comfort for 5 hours of wear</span><span class='chip'>A photo of the actual colour in different light</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>9.5</b> · chose <b>9.5</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> Page did its job on size and colour, but it didn&#x27;t address heel-slip or heel-cup snugness, between-sizes guidance, or show the colour in different light. A heel-fit note and a multi-light colour photo would remove the remaining doubt.</div>
+    <div class='kv'><span>Evidence:</span> Shopper bought their usual 9.5 (size check ok, true to size, narrow toe box suits narrow feet), the colour check shows they weren&#x27;t misled since the page disclosed the deep red-brown, and there is no comfort issue, so only mild colour doubt remains.</div>
+  </div>
+</div></div>
+</details>
+<details class='card persona'>
+  <summary class='persona-head'><h2>C25 · Size 9, regular width, nurse on 12-hour shifts</h2><span><span class='mini bad'><span class='icon' aria-hidden='true'>✕</span>Original: Likely return · Too big</span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>After: Keeps it</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:179469331654587 · ALDO_CA</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 9.0</span><span class='chip'>regular feet</span><span class='chip'>Skechers, Clarks</span><span class='chip'>nurse, 12-hour shifts</span><span class='chip'>12 h on feet</span><span class='chip'>Comfort matters more than looks; I&#x27;m on my feet for hours.</span><span class='chip'>likes white, tan</span><span class='chip'>smooth leather</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Aahliyah in 9.0</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Uncomfortable</span></div>
+  <div class='brief'>You wear a US 9 with regular width feet, and you&#x27;ve worn Skechers and Clarks. You work as a nurse on 12-hour shifts, so you&#x27;re on your feet about 12 hours. Comfort matters more to you than looks. You prefer white or tan colours and smooth leather.<div class='tiny' style='margin-top:4px'>Goal: Find the pair of boots that suits you best for long nursing shifts. ·
+    starts on the category page</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 16 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/search?q=Boots</li><li><b>Read the page</b></li><li><b>Open</b> #/product/belide</li><li><b>Read the page</b></li><li><b>Click</b></li><li><b>Read the page</b></li></ol><details class='more'><summary>Show 10 more steps</summary><ol class='timeline'><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Open</b> #/product/belide</li><li><b>Click</b></li><li><b>Click</b> “9” button</li><li><b>Click</b> “Add to bag” button</li><li><b>Read the page</b></li><li><b>Click</b> “Cognac” button</li><li><b>Click</b> “9” button</li><li><b>Click</b> “Add to bag” button</li></ol></details>
+  <div class='kv'><span>Decision:</span> Belide · colour Cognac · size 9 · rated 3/5</div>
+  <p class='quote'>“Smooth leather, almond toe, a low 4 cm heel and regular width. That&#x27;s about as sensible as this boot list gets for a 12-hour shift. I wish the page said something about cushioning or insoles, and there was a white or tan option.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>smooth leather with soft sheen</span><span class='chip'>softly tapered almond toe</span><span class='chip'>warm cognac colour, closest to tan</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Cushioning or insole details</span><span class='chip'>Sole type and slip resistance</span><span class='chip'>Weight of the boot</span><span class='chip'>Sizing guidance (runs true?)</span><span class='chip'>Whether a tan or white colour is available</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too big</b>
+      <div class='what'>Expected size <b>8.5</b> · chose <b>9</b> → too big</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page never said the boot runs half a size large (order half a size down). It also gave no cushioning, insole, sole or weight details, which this shopper on her feet for 12 hours asked for.</div>
+    <div class='kv'><span>Evidence:</span> The shopper bought her usual 9.0 without any sizing guidance (she asked &quot;runs true?&quot;), but the boot runs half a size large, so she needed an 8.5 and the 9.0 will be too big; the comfort check is clean, so size is the cause.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 32 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/search?q=Boots</li><li><b>Read the page</b></li><li><b>Open</b> #/product/belide</li><li><b>Read the page</b></li><li><b>Click</b> Belide</li><li><b>Read the page</b></li></ol><details class='more'><summary>Show 23 more steps</summary><ol class='timeline'><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Open</b> #/product/wicoenia</li><li><b>Read the page</b></li><li><b>Click</b> Tan swatch</li><li><b>Click</b> Size 9</li><li><b>Click</b> Add to bag</li><li><b>Read the page</b></li><li><b>Click</b> Remove</li><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Click</b> Remove</li><li><b>Click</b> Tan swatch</li><li><b>Click</b> Size 9</li><li><b>Read the page</b></li><li><b>Click</b> Close bag</li><li><b>Click</b> Tan swatch</li><li><b>Click</b> Size 9</li><li><b>Click</b> Add to bag</li><li><b>Read the page</b> <span class=tiny>×3</span></li><li><b>Click</b> Size 9</li><li><b>Click</b> Add to bag</li><li><b>Read the page</b> <span class=tiny>×2</span></li></ol></details>
+  <div class='kv'><span>Decision:</span> Braxtonn · colour Tan · size 9 · rated 3/5</div>
+  <p class='quote'>“Tan with a round, roomy toe is what I&#x27;d want for 12-hour shifts, so I went with the Braxtonn in my usual 9. The page says nothing about cushioning or support, and it&#x27;s suede rather than the smooth leather I like.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>Photo caption: tan colour</span><span class='chip'>Rounded toe, roomy-looking front</span><span class='chip'>Soft matte suede look</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Insole cushioning or arch support details</span><span class='chip'>Sole type and slip resistance</span><span class='chip'>Boot weight</span><span class='chip'>Whether sizing runs true</span><span class='chip'>Easy-clean or water resistance info</span><span class='chip'>Smooth leather option in tan or white</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>9</b> · chose <b>9</b> → fits</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div>
+    <div class='kv'><span>Page gap:</span> Page didn&#x27;t cover cushioning/arch support, sole and slip resistance, weight, true-to-size fit, or care/water resistance. The shopper bought anyway and nothing is wrong, so these are minor confidence gaps and not a return driver.</div>
+    <div class='kv'><span>Evidence:</span> Size 9.0 matches expected true-to-size fit, tan matches the photo, and the product has no comfort issue, so despite the 12-hour shifts and a 3-star rating the purchase should hold.</div>
+  </div>
+</div></div>
+</details>
+<details class='card persona'>
+  <summary class='persona-head'><h2>C22 · Size 7, narrow feet, particular about colour</h2><span><span class='mini bad'><span class='icon' aria-hidden='true'>✕</span>Original: Likely return · Colour</span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>After: Keeps it</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:40441968820444 · CIS_CA</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 7.0</span><span class='chip'>narrow feet</span><span class='chip'>Steve Madden, Converse</span><span class='chip'>everyday wear</span><span class='chip'>2 h on feet</span><span class='chip'>Very particular about colour and finish; I buy what the photo shows.</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Elliette in 7.0</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Not what I expected</span></div>
+  <div class='brief'>You wear a US 7 with narrow feet, and you&#x27;ve worn Steve Madden and Converse. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You&#x27;re very particular about colour and finish and buy what the photo shows. You&#x27;d wear them for everyday wear, about 2 hours on your feet.<div class='tiny' style='margin-top:4px'>Goal: Find a pair of boots for everyday wear, probably the Rosewood. ·
+    arrives from an ad</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “7” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 7 · rated 4/5</div>
+  <p class='quote'>“The Rosewood pink suede is exactly what I saw in the ad, so I got it in my usual 7. I wish the page said more about fit, since my feet are narrow and the width is only listed as &quot;Regular&quot;.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>bright rosy pink matte napped suede</span><span class='chip'>almond toe shape</span><span class='chip'>heeled ankle boot silhouette</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Whether it runs true to size</span><span class='chip'>Narrow-width fit information</span><span class='chip'>Comfort and cushioning for 2 hours of wear</span><span class='chip'>Suede care and colour accuracy notes</span><span class='chip'>Customer reviews</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Colour</b>
+      <div class='what'>Expected size <b>7</b> · chose <b>7</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page didn&#x27;t say that the Rosewood photo shows a brighter pink than the real boot, which is a deep red-brown with a slight purple cast and looks darker than on most screens. It needed an accurate colour description or a true-colour photo. It also never said the toe box is narrow, which would have helped with fit questions; the &#x27;Regular&#x27; width and the lack of sizing guidance left the shopper unsure.</div>
+    <div class='kv'><span>Evidence:</span> The shopper, who is colour-particular and &quot;buys what the photo shows,&quot; bought Rosewood because of the bright rosy pink in the ad, but the real colour is a deep red-brown with a purple cast, so the colour check flags a return; size is fine (7.0 true to size) and there is no comfort issue.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 16 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Open</b> #/</li><li><b>Read the page</b></li><li><b>Click</b></li><li><b>Read the page</b></li></ol><details class='more'><summary>Show 8 more steps</summary><ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Click</b></li><li><b>Read the page</b></li><li><b>Click</b> <span class=tiny>×3</span></li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “7” button</li><li><b>Click</b> “Add to bag” button</li></ol></details>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 7 · rated 2/5</div>
+  <p class='quote'>“The ad and the listing showed a bright rosy pink, but the product page says it&#x27;s a deep red-brown and &quot;not bright pink&quot;. I bought the shape and suede anyway, but I&#x27;m disappointed the colour doesn&#x27;t match what drew me in.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>Almond toe and low stacked heel shape</span><span class='chip'>Matte napped suede finish</span><span class='chip'>Listing photo caption said bright rosy pink, which is what attracted me</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>A true-to-colour photo that matches the bright pink in the ad</span><span class='chip'>A pink colour option</span><span class='chip'>Why the listing and product page describe the colour differently</span><span class='chip'>Cushioning or comfort details for 2 hours of wear</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>7</b> · chose <b>7</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The product page did its job on colour and fit. The remaining problem is that the ad and listing photo caption still said &quot;bright rosy pink&quot;, which contradicts the product page. Make the ad and listing copy and imagery match the true deep red-brown, or offer a real pink colourway. A line on cushioning would also help.</div>
+    <div class='kv'><span>Evidence:</span> The shopper chose size 7.0, which is correct, and bought Rosewood knowing the page called it deep red-brown and &quot;not bright pink&quot;. The colour check shows they weren&#x27;t misled by the photo and predicts no return. There&#x27;s no comfort issue for 2 hours on their feet, though the 2-star rating shows they&#x27;re disappointed.</div>
+  </div>
+</div></div>
+</details>
+<details class='card persona'>
+  <summary class='persona-head'><h2>C04 · Size 7.5, regular width, wedding guest</h2><span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>Original: Keeps it</span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>After: Keeps it</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:279418955460611 · ALDO_US</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 7.5</span><span class='chip'>regular feet</span><span class='chip'>Converse, Naturalizer</span><span class='chip'>wedding guest</span><span class='chip'>7 h on feet</span><span class='chip'>Usually orders my normal size without checking a size guide.</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Wicoenia in 7.5</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Too small</span></div>
+  <div class='brief'>You wear a US 7.5 with regular width feet, and you&#x27;ve worn Converse and Naturalizer. You saw an ad for Rosewood, a soft matte napped suede heeled ankle boot with a softly tapered almond toe in bright rosy pink, and you liked the look. You need boots for a wedding you&#x27;re attending as a guest, about 7 hours on your feet. You usually order your normal size without checking a size guide.<div class='tiny' style='margin-top:4px'>Goal: Find a pair of boots to wear as a wedding guest, probably the Rosewood. ·
+    arrives from an ad</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “7.5” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 7.5 · rated 4/5</div>
+  <p class='quote'>“The rosy pink suede is just what I saw in the ad, and a 4 cm heel should be fine for a long wedding. I wish the page said more about comfort and sizing.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>bright rosy pink matte suede</span><span class='chip'>almond toe</span><span class='chip'>low heeled ankle boot shape</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Fit guidance (true to size?)</span><span class='chip'>Cushioning or insole comfort for 7 hours standing</span><span class='chip'>Lining and sole details</span><span class='chip'>Care instructions for suede</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>7.5</b> · chose <b>7.5</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page didn&#x27;t say the fit is true to size, and it didn&#x27;t mention the narrow toe box, which is worth flagging for a 7-hour wear. It also didn&#x27;t say that Rosewood is a deep red-brown with a slight purple cast, darker than the bright pink in the photo. Care instructions, lining and sole details, and cushioning info were missing too. None of these gaps is likely to cause a return for this shopper.</div>
+    <div class='kv'><span>Evidence:</span> She bought her usual 7.5, which matches the true-to-size fit, and the product has no comfort issue. The photo overstated how pink the Rosewood is (it&#x27;s really a deep red-brown), but the colour check says she isn&#x27;t colour-sensitive, so it doesn&#x27;t trigger a return, and she rated it 4.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 5 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/product/rosewood</li><li><b>Read the page</b></li><li><b>Click</b> “Rosewood” button</li><li><b>Click</b> “7.5” button</li><li><b>Click</b> “Add to bag” button</li></ol>
+  <div class='kv'><span>Decision:</span> Rosewood · colour Rosewood · size 7.5 · rated 3/5</div>
+  <p class='quote'>“The ad made it look bright rosy pink, but the page says it&#x27;s a deep red-brown and not bright pink. I still bought it in my usual 7.5 because the fit note says true to size. I&#x27;m a bit unsure about the colour.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>soft matte napped suede look</span><span class='chip'>almond toe</span><span class='chip'>heeled ankle boot shape</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>A photo showing the true colour</span><span class='chip'>Cushioning or comfort info for 7 hours of standing</span><span class='chip'>A pink colour option</span><span class='chip'>Whether the narrow toe box is tight for regular-width feet</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>7.5</b> · chose <b>7.5</b> → fits</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page mostly did its job. Remaining minor gap: the ad/hero photo still showed bright rosy pink, which conflicted with the text. Reshot natural-light photos would fix that. It also didn&#x27;t say whether the narrow toe box feels snug on regular-width feet over 7 hours. Her past too-small return makes that a mild risk, but the size check says this fit is fine.</div>
+    <div class='kv'><span>Evidence:</span> Size check is ok (7.5 expected and chosen), colour check shows not misled or colour-sensitive because the page&#x27;s colour note told her it&#x27;s deep red-brown, and there&#x27;s no comfort issue, so her unsure 3-star purchase shouldn&#x27;t come back.</div>
+  </div>
+</div></div>
+</details>
+<details class='card persona'>
+  <summary class='persona-head'><h2>C40 · Size 8.5, regular width, between sizes, evenings out</h2><span><span class='mini good'><span class='icon' aria-hidden='true'>✓</span>Original: Keeps it</span><span class='mini bad'><span class='icon' aria-hidden='true'>✕</span>After: Likely return · Too small</span></span></summary>
+  <div class='tiny' style='margin:6px 0 8px'>customer SID:207882071098518 · ALDO_CA</div>
+  <div class='agent-tag'>Persona builder</div>
+  <div><span class='chip'>US 8.5</span><span class='chip'>regular feet</span><span class='chip'>Vans, Converse</span><span class='chip'>evenings out</span><span class='chip'>7 h on feet</span><span class='chip'>Between sizes; my heel often slips in shoes.</span><span class='chip'>likes tan, cream</span><span class='chip'>knit</span>
+    <span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 bought Goer in 8.5</span><span class='chip hidden' title='Hidden from the shopper; used by the judge'>🔒 returned: Too big</span></div>
+  <div class='brief'>You wear a US 8.5 with regular width feet, and you&#x27;ve worn Vans and Converse. You&#x27;re between sizes, and your heel often slips in shoes. You&#x27;re shopping for evenings out, about 7 hours on your feet. You like tan and cream colours and knit textures.<div class='tiny' style='margin-top:4px'>Goal: Find the pair of boots that suits you best for evenings out. ·
+    starts on the category page</div></div>
+  <div class='runs'>
+<div class='run'><h4>Original page</h4>
+  <div class='tiny'>Shopper agent · 18 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/search?q=Boots</li><li><b>Read the page</b></li><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Click</b></li><li><b>Read the page</b></li></ol><details class='more'><summary>Show 9 more steps</summary><ol class='timeline'><li><b>Open</b> #/product/goer</li><li><b>Read the page</b> <span class=tiny>×2</span></li><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Click</b> <span class=tiny>×3</span></li><li><b>Read the page</b></li><li><b>Click</b> “Tan” button</li><li><b>Click</b> “8.5” button</li><li><b>Click</b> “Add to bag” button</li></ol></details>
+  <div class='kv'><span>Decision:</span> Braxtonn · colour Tan · size 8.5 · rated 3/5</div>
+  <p class='quote'>“Tan suede Chelsea with a round toe and a modest 5 cm heel looks right for long evenings on my feet. The page is thin, though. It says nothing about fit or sizing, and nothing about heel grip, which matters since my heels slip.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>tan colour in photo</span><span class='chip'>soft matte napped suede texture</span><span class='chip'>rounded, roomy-looking toe</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>Whether it runs true to size, since I&#x27;m between sizes</span><span class='chip'>Heel grip or how snug the ankle fits</span><span class='chip'>Cushioning or insole comfort for 7 hours standing</span><span class='chip'>Lining and sole details</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome good'><span class='icon' aria-hidden='true'>✓</span><div><b class='lbl'>Keeps it</b>
+      <div class='what'>Expected size <b>8.5</b> · chose <b>8.5</b> → fits</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page didn&#x27;t say the shoe runs true to size, which mattered because the shopper is between sizes and had a past too-big return. It also gave nothing on heel grip or ankle snugness, cushioning or insole, or lining and sole. A &quot;true to size&quot; note and a few comfort and heel-fit details would have removed the doubt.</div>
+    <div class='kv'><span>Evidence:</span> Shopper bought 8.5 in Tan; the size check passes (true to size, expected 8.5), the colour matches the photo, and there is no comfort issue, so nothing points to a return despite the 3-star rating and the heel-slip worry.</div>
+  </div>
+</div>
+    
+<div class='run'><h4>After fixes</h4>
+  <div class='tiny'>Shopper agent · 11 browser actions</div>
+  <ol class='timeline'><li><b>Open</b> #/search?q=Boots</li><li><b>Read the page</b></li><li><b>Open</b> #/product/braxtonn</li><li><b>Read the page</b></li><li><b>Click</b></li><li><b>Read the page</b></li></ol><details class='more'><summary>Show 5 more steps</summary><ol class='timeline'><li><b>Open</b> #/product/aahliyah</li><li><b>Read the page</b></li><li><b>Click</b> “Cream” button</li><li><b>Click</b> “8.5” button</li><li><b>Click</b> “Add to bag” button</li></ol></details>
+  <div class='kv'><span>Decision:</span> Aahliyah · colour Cream · size 8.5 · rated 3/5</div>
+  <p class='quote'>“Cream faux-suede lace-up with a buckle and a low 4 cm heel looked like the best bet for a night out and for keeping my slippy heel in place. The page is thin, though: no fit or sizing advice and no comfort info.”</p>
+  <div class='kv'><span>Photo cues used:</span><br><span class='chip'>cream colour</span><span class='chip'>brushed suede-look texture</span><span class='chip'>squared-off toe</span></div>
+  <div class='kv'><span>Wished the page said:</span><br><span class='chip'>whether it runs true to size</span><span class='chip'>cushioning/comfort for 7 hours standing</span><span class='chip'>how secure the heel fit is</span></div>
+  <div class='judge'><div class='agent-tag'>Judge</div>
+    <div class='outcome bad'><span class='icon' aria-hidden='true'>✕</span><div><b class='lbl'>Likely return · Too small</b>
+      <div class='what'>Expected size <b>9</b> · chose <b>8.5</b> → too small</div><div class='other'>other style, not counted in this page&#x27;s rate</div></div></div>
+    <div class='kv'><span>Page gap:</span> The page never said the shoe runs half a size small, or that between-size shoppers should size up to 9. It also gave no heel-security or fit guidance. The shopper&#x27;s past return was because a shoe was too big, so they could easily overcorrect.</div>
+    <div class='kv'><span>Evidence:</span> The shopper, who is between sizes, bought their usual 8.5 and said the page had no sizing advice, but the shoe runs half a size small and needs a 9.0, so the size check fails.</div>
+  </div>
+</div></div>
+</details></section>
+<section><h2>Agent 5 · Fixer</h2>
+<div class='card'><div class='agent-tag'>Fixer</div><h3>Weaknesses, ranked by how many shoppers hit them</h3><div class='weak'><div><b>1. The page says width is &quot;Regular&quot; and gives no fit guidance. It doesn&#x27;t say the boot is true to size or that the toe box is narrow, so wide-footed shoppers have no cue to size up.</b><div class='muted' style='margin-top:4px'>“Size 6 wide-footed shopper bought her usual 6 and is a likely &quot;Too small&quot; return: &quot;The page says the width is &#x27;Regular&#x27; and doesn&#x27;t say how the boots fit, so I&#x27;m a bit unsure about my wide feet.&quot; Three other Rosewood shoppers also asked whether it runs true to size.”</div></div><div><div class='bar-track' data-tip-value='4 of 6 shoppers' data-tip-label='hit this weakness'><div class='bar' style='width:66.66666666666666%'></div></div><div class='bar-label'>4 of 6 shoppers</div></div></div><div class='weak'><div><b>2. The Rosewood photo and swatch show bright rosy pink. The real boot is a deep red-brown with a slight purple cast, darker than on most screens. The page has no colour description or note on this.</b><div class='muted' style='margin-top:4px'>“All four Rosewood shoppers bought it expecting pink. The colour-particular size 7 shopper, who &quot;buys what the photo shows,&quot; is a likely &quot;Colour&quot; return: &quot;The Rosewood pink suede is exactly what I saw in the ad.&quot;”</div></div><div><div class='bar-track' data-tip-value='4 of 6 shoppers' data-tip-label='hit this weakness'><div class='bar' style='width:66.66666666666666%'></div></div><div class='bar-label'>4 of 6 shoppers</div></div></div></div>
+<div class='fixes'>
+  <div class='note'><b>Fit note (shown under the size picker)</b>True to size with a narrow toe box. Take your usual size if your feet are narrow or regular. If your feet are wide, consider going up half a size.</div>
+  <div class='note'><b>Colour note</b>Rosewood is a deep red-brown with a slight purple cast. It is darker than it looks on most screens and is not bright pink.</div>
+  <div class='note'><b>Photo shot list for staff</b><ol class='shots'><li>Reshoot Rosewood in natural daylight with no colour filter or heavy retouching, and match the swatch and ad images to the real boot colour.</li><li>Shots needed: front three-quarter, side profile showing the 4 cm stacked heel and side zip, top-down view of the almond toe to show how narrow it is, a close-up of the suede nap, and an on-foot shot.</li><li>Add Rosewood next to Black for colour reference.</li><li>Check the final images against the physical boot on a calibrated screen and a phone.</li></ol></div>
+  <div class='note'><b>Product-feed facts (for AI shoppers)</b><span class='chip'>width: narrow</span><span class='chip'>heel_cm: 4.0</span><span class='chip'>colour_text: Deep red-brown with a slight purple cast; darker than it appears on most screens</span></div>
+</div>
+<div class='card' style='margin-top:12px'><h3>Site-wide weaknesses</h3>
+  <ul><li>Product pages carry no size or fit guidance (true to size, runs small or large). Shoppers on every product asked &quot;does it run true?&quot; and kept their usual size. On Belide that led to a likely &quot;Too big&quot; return.</li><li>There is no size guide, and &quot;Width: Regular&quot; is the only width information. Wide-footed and narrow-footed shoppers can&#x27;t tell whether a boot&#x27;s toe box or heel will suit them.</li><li>Pages give no comfort construction details such as lining, insole or cushioning, sole type, or weight. Shoppers who stand for long periods (a nurse on 12-hour shifts, a wedding guest, an evening-out shopper) asked for these. State them only where they are known.</li><li>Care instructions for suede and customer reviews are missing.</li><li>Ad imagery and swatch colours aren&#x27;t checked against the real product colour. Rosewood shows the gap, so other colourways should be checked too.</li></ul>
+  <div class='tiny'>All fixes are drafts: tunnel.json marks them approved: false until a merchandiser signs off.</div></div></section>
+<section><h2>How to read the numbers</h2><div class='card method'>
+  <p><b>Return rate</b> = likely returns ÷ shoppers who bought Rosewood. Shoppers who bought another style are judged too, but not counted here.</p>
+  <p><b>Range</b> = ±1 standard error of that share: <code>max(5%, √(p × (1 − p) ÷ n))</code>. It's widest when shoppers disagree (p near 50%) and shrinks as more shoppers run (√n). About 68% confidence; double it for about 95%. The 5% floor stops 0% or 100% from looking certain with only a handful of shoppers.</p>
+  <p><b>Judge rules.</b> Size is deterministic: expected = usual size + the style's fit offset, plus ½ for wide feet on a narrow toe box. Colour is a return only when the shopper bought the colourway whose photo misleads, the page didn't correct it, and they have returned shoes for colour or look before. Claude judges comfort and writes the page gap.</p>
+</div></section>
+</div><div id='tip' role='tooltip'></div></div><script>
+const tip = document.getElementById('tip');
+document.querySelectorAll('[data-tip-value]').forEach(el => {
+  const show = (x, y) => {
+    tip.replaceChildren();
+    const v = document.createElement('strong'); v.textContent = el.dataset.tipValue;
+    const l = document.createElement('span'); l.textContent = el.dataset.tipLabel || '';
+    tip.append(v, l); tip.style.display = 'block';
+    tip.style.left = Math.min(x + 12, innerWidth - 300) + 'px'; tip.style.top = (y + 12) + 'px';
+  };
+  el.addEventListener('pointermove', ev => show(ev.clientX, ev.clientY));
+  el.addEventListener('pointerleave', () => tip.style.display = 'none');
+  el.tabIndex = 0;
+  el.addEventListener('focus', () => { const r = el.getBoundingClientRect(); show(r.left, r.bottom); });
+  el.addEventListener('blur', () => tip.style.display = 'none');
+});
+</script></body></html>

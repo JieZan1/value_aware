@@ -1,0 +1,162 @@
+{
+  "rosewood": {
+    "texture": "soft matte napped suede",
+    "shape": "softly tapered almond toe",
+    "colour_as_seen": "bright rosy pink",
+    "style": "heeled ankle boot",
+    "popularity": null,
+    "colour_natural_light": "deep red-brown with a slight purple cast, darker than on most screens"
+  },
+  "elliette": {
+    "texture": "glossy smooth faux leather",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "black",
+    "style": "heeled ankle boot",
+    "popularity": null,
+    "colour_natural_light": "black"
+  },
+  "braxtonn": {
+    "texture": "soft matte napped suede",
+    "shape": "rounded toe, roomy-looking front",
+    "colour_as_seen": "tan",
+    "style": "chelsea boot",
+    "popularity": null,
+    "colour_natural_light": "tan"
+  },
+  "kamrynn": {
+    "texture": "soft matte napped suede",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "black",
+    "style": "slouch boot",
+    "popularity": null,
+    "colour_natural_light": "black"
+  },
+  "aahliyah": {
+    "texture": "fine brushed faux suede with a flat sheen",
+    "shape": "squared-off toe",
+    "colour_as_seen": "cream",
+    "style": "lace-up heeled boot",
+    "popularity": "Popular",
+    "colour_natural_light": "cream"
+  },
+  "goer": {
+    "texture": "knit-textured fabric",
+    "shape": "rounded toe, roomy-looking front",
+    "colour_as_seen": "black",
+    "style": "ankle boot",
+    "popularity": "Bestseller",
+    "colour_natural_light": "black"
+  },
+  "verity": {
+    "texture": "glossy smooth faux leather",
+    "shape": "rounded toe, roomy-looking front",
+    "colour_as_seen": "black",
+    "style": "ankle boot",
+    "popularity": "Bestseller",
+    "colour_natural_light": "black"
+  },
+  "wicoenia": {
+    "texture": "smooth leather with a soft sheen",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "black",
+    "style": "chelsea boot",
+    "popularity": "Popular",
+    "colour_natural_light": "black"
+  },
+  "nevada": {
+    "texture": "soft matte napped suede",
+    "shape": "squared-off toe",
+    "colour_as_seen": "light warm beige",
+    "style": "knee-high boot",
+    "popularity": "Popular",
+    "colour_natural_light": "cool grey-brown taupe"
+  },
+  "belide": {
+    "texture": "smooth leather with a soft sheen",
+    "shape": "softly tapered almond toe",
+    "colour_as_seen": "cognac",
+    "style": "lace-up boot",
+    "popularity": null,
+    "colour_natural_light": "cognac"
+  },
+  "veadith": {
+    "texture": "knit-textured fabric",
+    "shape": "softly tapered almond toe",
+    "colour_as_seen": "black",
+    "style": "bow mule",
+    "popularity": "Bestseller",
+    "colour_natural_light": "black"
+  },
+  "clementinne": {
+    "texture": "smooth leather with a soft sheen",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "cognac",
+    "style": "loafer",
+    "popularity": "Popular",
+    "colour_natural_light": "cognac"
+  },
+  "alanie": {
+    "texture": "smooth leather with a soft sheen",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "pale peachy nude",
+    "style": "pointed slingback heel",
+    "popularity": null,
+    "colour_natural_light": "deeper tan nude"
+  },
+  "oneameth": {
+    "texture": "soft matte napped suede",
+    "shape": "sharp pointed toe, slim profile",
+    "colour_as_seen": "nude",
+    "style": "pump",
+    "popularity": null,
+    "colour_natural_light": "nude"
+  },
+  "lededanten": {
+    "texture": "fine brushed faux suede with a flat sheen",
+    "shape": "softly tapered almond toe",
+    "colour_as_seen": "tan",
+    "style": "horsebit loafer",
+    "popularity": null,
+    "colour_natural_light": "tan"
+  },
+  "dorenna": {
+    "texture": "knit-textured fabric",
+    "shape": "rounded open toe",
+    "colour_as_seen": "bright cherry red",
+    "style": "platform sandal",
+    "popularity": "Bestseller",
+    "colour_natural_light": "dark wine burgundy"
+  },
+  "elenaa": {
+    "texture": "glossy smooth faux leather",
+    "shape": "open toe",
+    "colour_as_seen": "sky blue",
+    "style": "heeled mule sandal",
+    "popularity": "Bestseller",
+    "colour_natural_light": "sky blue"
+  },
+  "aneka": {
+    "texture": "smooth leather with a soft sheen",
+    "shape": "squared open toe",
+    "colour_as_seen": "white",
+    "style": "flat slide",
+    "popularity": "Popular",
+    "colour_natural_light": "white"
+  },
+  "lagoon": {
+    "texture": "glossy smooth faux leather",
+    "shape": "rounded open toe",
+    "colour_as_seen": "soft champagne gold",
+    "style": "strappy heel sandal",
+    "popularity": "Popular",
+    "colour_natural_light": "bright brassy yellow-gold with a high shine"
+  },
+  "adrauder": {
+    "texture": "glossy smooth faux leather",
+    "shape": "open toe",
+    "colour_as_seen": "black",
+    "style": "slide",
+    "popularity": "Popular",
+    "colour_natural_light": "black"
+  }
+}
